@@ -1,14 +1,14 @@
 function AboutController(PostService, MetadataService) {
     var vm = this;
 
-    vm.post = {};
+    vm.posts = [];
 
-    PostService.webInfoPostByTag('who-we-are').then(function(post) {
-        vm.post = post;
+    PostService.webInfoPostByTag('who-we-are').then(function(posts) {
+        vm.posts = posts;
 
         MetadataService.setMetadata({
-            title: page.title,
-            description: page.excerpt
+            title: posts[0].title,
+            description: posts[0].excerpt
         });
     });
 

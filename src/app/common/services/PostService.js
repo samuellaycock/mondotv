@@ -11,7 +11,7 @@ function PostService($http, $sce, config) {
 
     // Search and return all posts by category
     function allPostsByCategory(category, amount, order) {
-        return getData('posts?filter[category_name]=' + category + '&filter[posts_per_page]=' + amount + '&filter[order]=' + order)
+        return getData('posts?filter[category_name]=' + category + '&filter[posts_per_page]=' + amount + '&filter[order]=' + order);
     }
 
     // Search and return from all posts by tag
