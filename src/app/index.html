@@ -79,12 +79,17 @@
     <nav class="menu-view" ng-class="{'show-mobile-menu': vm.showMobileMenu }" style="padding:0.5em 0;border:solid rgba(0,0,0,0.1);border-width:1px 0;">
         <div class="pure-menu pure-menu-horizontal" style="max-width:1200px;margin:auto;">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'home'}" ui-sref="home" style="font-family:'Nexa Bold';text-transform:uppercase;letter-spacing:0.35em;font-size: 0.9em;">Home</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'home'}" ui-sref="home" >Home</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" ui-sref="about" >Who We Are</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'projects'}" ui-sref="projects" >Projects</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'clients'}" ui-sref="clients" >Clients</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'Process'}" ui-sref="process">How It Works</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'blog' ||
                                              vm.activeSection === 'post' ||
                                              vm.activeSection === 'postsByTag' ||
-                                             vm.activeSection === 'postsBySearch'}" ui-sref="blog" style="font-family:'Nexa Bold';text-transform: uppercase;letter-spacing: 0.35em;font-size: 0.9em;">Blog</a></li>
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" ui-sref="about" style="font-family:'Nexa Bold';text-transform:uppercase;letter-spacing:0.35em;font-size: 0.9em;">About</a></li>
+                                             vm.activeSection === 'postsBySearch'}" ui-sref="blog">Blog</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'press'}" ui-sref="press">Press</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'contact'}" ui-sref="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
