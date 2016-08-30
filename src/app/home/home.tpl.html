@@ -1,17 +1,17 @@
 <section>
-    <slick class="featured-articles">
-        <li ng-repeat="post in vm.allFeatured">
-            <div style="background-image:url({{ post.featured_image.attachment_meta.sizes.large.url }})">
+    <slick class="featured-articles" infinite="true" autoplay="true" dots="true" arrows="true" data="vm.allFeatured" ng-if="vm.allFeatured.length">
+        <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ post.featured_image.attachment_meta.sizes.large.url }})">
+            <div class="slide-content">
                 <h1>{{ post.title }}</h1>
                 <a class="pure-button pure-button-primary" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
                 <a class="pure-button pure-button-primary">Get In Touch</a>
             </div>
-        </li>
+        </div>
     </slick>
 </section>
 
 <section class="pure-g page-content" ng-controller="HomeController as vm">
-    <div class="pure-u-1 pure-u-md-1-2">
+    <div class="pure-u-1">
         <h2>Videos</h2>
         <ul>
             <li ng-repeat="video in vm.allVideos">
@@ -19,12 +19,7 @@
             </li>
         </ul>
     </div>
-    <div class="pure-u-1 pure-u-md-1-2">
-        <h2>Technologies</h2>
-        <ul>
-        </ul>
-    </div>
-    <div class="pure-u-1">
+    <div class="pure-u-1" ng-if="vm.bulletins.length">
         <div class="hero-box">
             <h1>Angular Wordpress Seed</h1>
             <p>

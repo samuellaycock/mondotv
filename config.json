@@ -2,7 +2,7 @@
   "PATHS": {
     "build": {
       "siteUrl": "http://localhost/mondotv/build/",
-      "basePath": "http://localhost/mondotv/build/",
+      "basePath": "/mondotv/build/",
       "apiUrl": "http://52.40.41.17/wp-json/"
     },
     "dist": {

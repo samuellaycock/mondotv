@@ -13,7 +13,7 @@ function HomeController(PostService, MetadataService) {
         vm.allFeatured = posts;
     });
 
-    PostService.allPostsByCategory('bulletin', 5, 'ASC').then(function(posts) {
+    PostService.allPostsByCategoryAndTag('bulletin', 'active', 5, 'ASC').then(function(posts) {
         vm.bulletins = posts;
     });
 

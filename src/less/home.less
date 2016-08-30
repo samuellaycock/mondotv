@@ -18,3 +18,128 @@
     margin-bottom: 0;
   }
 }
+
+.slick-slide {
+  position: relative;
+  height: 500px!important;
+  background-size: cover;
+  background-position: center;
+}
+
+.slick-prev,
+.slick-next,
+.slick-dots {
+  position: absolute;
+}
+
+.slick-prev,
+.slick-next,
+.slick-dots,
+.slick-dots > li > button {
+  padding: 0;
+  border: none;
+  color: transparent;
+  font-size: 0;
+}
+
+.slick-prev,
+.slick-next {
+  top: 50%;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
+  height: 80px;
+  width: 48px;
+  background: transparent;
+}
+
+.slick-prev {
+  left: 0.5rem;
+}
+
+.slick-next {
+  right: 0.5rem;
+}
+
+.slick-prev:before,
+.slick-next:after {
+  font-family: 'untitled-font-2';
+  color: #fff;
+  font-size: 3rem;
+}
+
+.slick-prev:before {
+  content: 'z';
+}
+
+.slick-next:after {
+  content: 'A';
+}
+
+.slick-dots {
+  margin: 0;
+  bottom: 1rem;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+  transform: translatex(-50%);
+}
+
+.slick-dots > li {
+  list-style: none;
+  display: inline-block;
+}
+
+.slick-dots > li > button {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 2rem;
+  opacity: 0.5;
+}
+
+.slick-dots > li:not(:last-child) > button {
+  margin-right: 2rem;
+}
+
+.slick-active > button {
+  opacity: 1!important;
+}
+
+.slick-slide > .slide-content {
+  position: absolute;
+  top: 45%;
+  right: 6rem;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
+  text-align: right;
+}
+
+.slick-slide > .slide-content > h1 {
+  margin: 0.4em 0;
+  max-width: 600px;
+  color: #fff;
+  font-family: 'Nexa Bold';
+  font-size: 5em;
+  line-height: 1em;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.slick-slide > .slide-content > .pure-button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.slick-slide > .slide-content > .pure-button:hover {
+  background: #fff;
+  color: #444;
+}
+
+.slick-slide > .slide-content > .pure-button:last-child {
+  margin-right: 0.4rem;
+}
+
+.slick-slide > .slide-content > .pure-button:nth-child(2) {
+  margin-right: 2rem;
+}

@@ -26,10 +26,14 @@ var config = require('./config.json'),
 
 var VENDOR_SCRIPTS = [
     'bower_components/modernizr/modernizr-custom.js',
+    'bower_components/jquery/dist/jquery.min.js',
     'bower_components/angular/angular.js',
     'bower_components/angular-animate/angular-animate.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
-    'bower_components/angular-utils-pagination/dirPagination.js'
+    'bower_components/angular-utils-pagination/dirPagination.js',
+    'bower_components/slick-carousel/slick/slick.js',
+    'bower_components/angular-slick/dist/slick.js',
+    'bower_components/ngSticky/dist/sticky.min.js'
 ];
 
 var log = function(message) {
@@ -117,7 +121,7 @@ gulp.task('styles', function() {
             .pipe(less())
             .pipe(autoprefixer());
 
-        vendorStyles = gulp.src(['bower_components/pure/pure.css', 'bower_components/pure/grids-responsive.css']);
+        vendorStyles = gulp.src(['bower_components/slick-carousel/slick/slick.css', 'bower_components/pure/pure.css', 'bower_components/pure/grids-responsive.css']);
 
         merge(vendorStyles, appStyles)
             .pipe(gulp.dest('build/styles'))
@@ -195,7 +199,7 @@ gulp.task('static-assets', function() {
 gulp.task('static-page-inject', ['styles', 'static-assets'], function() {
     var deferred = Q.defer();
 
-    var buildCss = gulp.src(['styles/pure.css','styles/**/*.css'], { cwd: 'build' });
+    var buildCss = gulp.src(['styles/pure.css', 'styles/**/*.css'], { cwd: 'build' });
     var build = gulp.src('build/static-page.php')
         .pipe(inject(buildCss, { addRootSlash: false }))
         .pipe(gulp.dest('./build'));

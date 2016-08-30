@@ -4,7 +4,7 @@
  * @param $http
  * @param $sce
  * @param config
- * @returns {{allPostsByCategory: allPostsByCategory, allPostsByTag: allPostsByTag, allPostsBySearchTerm: allPostsBySearchTerm, allFeaturedPosts: allFeaturedPosts, featuredPostsByCategory: featuredPostsByCategory, webInfoPostByTag: webInfoPostByTag, singlePostById: singlePostById}}
+ * @returns {{allPostsByCategory: allPostsByCategory, allPostsByTag: allPostsByTag, allPostsByCategoryAndTag: allPostsByCategoryAndTag, allPostsBySearchTerm: allPostsBySearchTerm, allFeaturedPosts: allFeaturedPosts, featuredPostsByCategory: featuredPostsByCategory, webInfoPostByTag: webInfoPostByTag, singlePostById: singlePostById}}
  * @constructor
  */
 function PostService($http, $sce, config) {
@@ -17,6 +17,11 @@ function PostService($http, $sce, config) {
     // Search and return from all posts by tag
     function allPostsByTag(tag, amount, order) {
         return getData('posts?filter[tag]=' + tag + '&filter[posts_per_page]=' + amount + '&filter[order]=' + order);
+    }
+
+    // Search and return from all posts by category and tag
+    function allPostsByCategoryAndTag(category, tag, amount, order) {
+        return getData('posts?filter[category_name]=' + category + '&filter[tag]=' + tag + '&filter[posts_per_page]=' + amount + '&filter[order]=' + order);
     }
 
     // Search and return all posts by search term
@@ -74,6 +79,7 @@ function PostService($http, $sce, config) {
     return {
         allPostsByCategory: allPostsByCategory,
         allPostsByTag: allPostsByTag,
+        allPostsByCategoryAndTag: allPostsByCategoryAndTag,
         allPostsBySearchTerm: allPostsBySearchTerm,
         allFeaturedPosts: allFeaturedPosts,
         featuredPostsByCategory: featuredPostsByCategory,

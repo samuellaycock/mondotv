@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <nav class="menu-view" ng-class="{'show-mobile-menu': vm.showMobileMenu }">
+    <nav class="menu-view" ng-class="{'show-mobile-menu': vm.showMobileMenu }" sticky>
         <div class="pure-menu pure-menu-horizontal">
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" ui-sref="about" >Who We Are</a></li>
@@ -94,11 +94,11 @@
         </div>
     </nav>
 
-    <section class="main-view">
+    <main class="main-view">
         <div class="content">
             <div ui-view="main"></div>
         </div>
-    </section>
+    </main>
 
     <footer class="footer">
         <section class="pure-g footer-info">
