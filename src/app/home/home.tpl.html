@@ -1,12 +1,13 @@
 <section>
-    <ul class="featured-articles">
+    <slick class="featured-articles">
         <li ng-repeat="post in vm.allFeatured">
-            <img ng-src="{{ post.featured_image.attachment_meta.sizes.large.url }}" alt="post.title" />
-            <h1>{{ post.title }}</h1>
-            <a class="pure-button pure-button-primary" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
-            <a class="pure-button pure-button-primary">Get In Touch</a>
+            <div style="background-image:url({{ post.featured_image.attachment_meta.sizes.large.url }})">
+                <h1>{{ post.title }}</h1>
+                <a class="pure-button pure-button-primary" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
+                <a class="pure-button pure-button-primary">Get In Touch</a>
+            </div>
         </li>
-    </ul>
+    </slick>
 </section>
 
 <section class="pure-g page-content" ng-controller="HomeController as vm">

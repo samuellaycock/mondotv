@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination']);
+angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick']);
 
 /**
  *
