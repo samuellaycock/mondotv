@@ -5,7 +5,7 @@ function HomeController(PostService, MetadataService) {
     vm.featuredBlogs = [];
     vm.bulletins = [];
 
-    PostService.allPostsByCategory('video', 500, 'ASC').then(function(posts) {
+    PostService.allPostsByCategory('video', 10, 'ASC').then(function(posts) {
         vm.allVideos = posts;
     });
 
