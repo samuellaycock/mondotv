@@ -10,7 +10,7 @@ function HomeController(PostService, MetadataService) {
     });
 
     PostService.allFeaturedPosts(5, 'ASC').then(function(posts) {
-        vm.featuredBlogs = posts;
+        vm.allFeatured = posts;
     });
 
     PostService.allPostsByCategory('bulletin', 5, 'ASC').then(function(posts) {

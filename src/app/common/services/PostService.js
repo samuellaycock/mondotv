@@ -30,7 +30,7 @@ function PostService($http, $sce, config) {
 
     // Search and return all featured posts by category
     function featuredPostsByCategory(category, amount, order) {
-        return getData('posts?filter[category_name]=' + category + '%2Bfeatured' + '&filter[posts_per_page]=' + amount + '&filter[order]=' + order);
+        return getData('posts?filter[category_name]=' + category + '%2Bfeatured&filter[posts_per_page]=' + amount + '&filter[order]=' + order);
     }
 
     // Search and return Web Information post by tag

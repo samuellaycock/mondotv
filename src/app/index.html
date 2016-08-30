@@ -89,6 +89,7 @@
                                              vm.activeSection === 'postsBySearch'}" ui-sref="blog">Blog</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'press'}" ui-sref="press">Press</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'contact'}" ui-sref="contact">Contact</a></li>
+                <li class="pure-menu-item"><a><span class="icon-search"></span></a></li>
             </ul>
         </div>
     </nav>
@@ -100,12 +101,21 @@
     </section>
 
     <footer class="footer">
-        <section class="pure-g">
+        <section class="pure-g footer-info">
             <hr />
             <div class="pure-u-1-4 blog">One</div>
             <div class="pure-u-1-4 twitter">Two</div>
             <div class="pure-u-1-4 facebook">Three</div>
             <div class="pure-u-1-4 contact">Four</div>
+        </section>
+        <section class="pure-g footer-social">
+            <ul>
+                <li><span class="icon-vimeo"></span></li>
+                <li><span class="icon-play"></span></li>
+                <li><span class="icon-twitter"></span></li>
+                <li><span class="icon-facebook"></span></li>
+                <li><span class="icon-linkedin"></span></li>
+            </ul>
         </section>
     </footer>
 
