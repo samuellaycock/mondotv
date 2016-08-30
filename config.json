@@ -1,8 +1,8 @@
 {
   "PATHS": {
     "build": {
-      "siteUrl": "http://localhost/mondotv-web/build/",
-      "basePath": "/samuel-laycock/dev/mondotv/mondotv-web/build/",
+      "siteUrl": "http://localhost/mondotv/build/",
+      "basePath": "http://localhost/mondotv/build/",
       "apiUrl": "http://52.40.41.17/wp-json/"
     },
     "dist": {

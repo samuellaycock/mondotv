@@ -18,7 +18,7 @@ function BlogController($anchorScroll, $stateParams, $state, PostService, Metada
         apiCallFunction = PostService.allPostsBySearchTerm($stateParams.searchTerm);
         vm.subtitle = 'searching "' + $stateParams.searchTerm + '"';
     } else {
-        apiCallFunction = PostService.allPosts();
+        apiCallFunction = PostService.allPostsByCategory('blog');
     }
 
     apiCallFunction.then(function(posts) {

@@ -13,7 +13,7 @@ function HomeController(PostService, MetadataService) {
         vm.featuredBlogs = posts;
     });
 
-    PostService.allPostByCategory('bulletin').then(function(posts) {
+    PostService.allPostsByCategory('bulletin').then(function(posts) {
         vm.featuredBlogs = posts;
     });
 

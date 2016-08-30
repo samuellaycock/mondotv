@@ -3,7 +3,7 @@ function PostController($stateParams, $anchorScroll, $timeout, $location, PostSe
 
     vm.post = {};
 
-    PostService.post($stateParams.id).then(function(post) {
+    PostService.singlePostById($stateParams.id).then(function(post) {
         vm.post = post;
 
         MetadataService.setMetadata({
