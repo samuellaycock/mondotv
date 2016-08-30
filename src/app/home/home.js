@@ -2,14 +2,14 @@ function HomeController(PostService, MetadataService) {
     var vm = this;
 
     vm.allVideos = [];
-    vm.featuredBlogs = [];
+    vm.allFeatured = [];
     vm.bulletins = [];
 
     PostService.allPostsByCategory('video', 10, 'ASC').then(function(posts) {
         vm.allVideos = posts;
     });
 
-    PostService.featuredPostsByCategory('blog', 5, 'ASC').then(function(posts) {
+    PostService.allFeaturedPosts(5, 'ASC').then(function(posts) {
         vm.featuredBlogs = posts;
     });
 

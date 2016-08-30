@@ -4,7 +4,7 @@
  * @param $http
  * @param $sce
  * @param config
- * @returns {{allPostsByCategory: allPostsByCategory, allPostsByTag: allPostsByTag, allPostsBySearchTerm: allPostsBySearchTerm, featuredPostsByCategory: featuredPostsByCategory, webInfoPostByTag: webInfoPostByTag, singlePostById: singlePostById}}
+ * @returns {{allPostsByCategory: allPostsByCategory, allPostsByTag: allPostsByTag, allPostsBySearchTerm: allPostsBySearchTerm, allFeaturedPosts: allFeaturedPosts, featuredPostsByCategory: featuredPostsByCategory, webInfoPostByTag: webInfoPostByTag, singlePostById: singlePostById}}
  * @constructor
  */
 function PostService($http, $sce, config) {
@@ -22,6 +22,10 @@ function PostService($http, $sce, config) {
     // Search and return all posts by search term
     function allPostsBySearchTerm(searchTerm) {
         return getData('posts?filter[s]=' + searchTerm);
+    }
+
+    function allFeaturedPosts(amount, order) {
+        return getData('posts?filter[category_name]=featured&filter[posts_per_page]=' + amount + '&filter[order]=' + order);
     }
 
     // Search and return all featured posts by category
@@ -71,6 +75,7 @@ function PostService($http, $sce, config) {
         allPostsByCategory: allPostsByCategory,
         allPostsByTag: allPostsByTag,
         allPostsBySearchTerm: allPostsBySearchTerm,
+        allFeaturedPosts: allFeaturedPosts,
         featuredPostsByCategory: featuredPostsByCategory,
         webInfoPostByTag: webInfoPostByTag,
         singlePostById: singlePostById
