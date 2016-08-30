@@ -1,12 +1,20 @@
-
-
-function HomeController(BlogService, MetadataService) {
+function HomeController(PostService, MetadataService) {
     var vm = this;
 
-    vm.featuredPosts = [];
+    vm.featuredVideos = [];
+    vm.featuredBlogs = [];
+    vm.bulletins = [];
 
-    BlogService.featuredPosts().then(function(posts) {
-        vm.featuredPosts = posts;
+    PostService.featuredPostsByCategory('video').then(function(posts) {
+        vm.featuredBlogs = posts;
+    });
+
+    PostService.featuredPostsByCategory('blog').then(function(posts) {
+        vm.featuredBlogs = posts;
+    });
+
+    PostService.allPostByCategory('bulletin').then(function(posts) {
+        vm.featuredBlogs = posts;
     });
 
     // pass an empty object to use the defaults.

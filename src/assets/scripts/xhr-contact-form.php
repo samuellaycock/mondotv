@@ -14,7 +14,7 @@ $request = json_decode($postdata);
 $fromEmail = $request->email;
 $message = $request->message;
 
-$subject = "An email from my personal website";
+$subject = "Website Enquiry: $fromEmail\r\n";
 $headers = "From: $fromEmail\r\n";
 
 if(mail("%%EMAIL_ADDRESS%%", $subject, $message, $headers)) {

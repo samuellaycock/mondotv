@@ -1,16 +1,16 @@
 {
   "PATHS": {
     "build": {
-      "siteUrl": "http://localhost/angular-wordpress-seed/build/",
-      "basePath": "/angular-wordpress-seed/build/",
-      "apiUrl": "http://localhost/wordpress/wp-json/"
+      "siteUrl": "http://localhost/mondotv-web/build/",
+      "basePath": "/samuel-laycock/dev/mondotv/mondotv-web/build/",
+      "apiUrl": "http://52.40.41.17/wp-json/"
     },
     "dist": {
-      "siteUrl": "http://www.example.com/",
+      "siteUrl": "http://www.mondotv.co/",
       "basePath": "/",
-      "apiUrl": "http://www.example.com/api/wp-json/"
+      "apiUrl": "http://www.mondotv.co/api/wp-json/"
     }
   },
-  "DEFAULT_TITLE" : "Angular Wordpress Seed",
-  "DEFAULT_DESCRIPTION" : "A basic blog app demonstrating the use of AngularJS with the Wordpress API"
+  "DEFAULT_TITLE" : "MondoTV",
+  "DEFAULT_DESCRIPTION" : "We focus on helping game-changing technology grow. Bridging the gap between your audience and your product or service by building clear, entertaining content. We do this through creative visual storytelling."
 }

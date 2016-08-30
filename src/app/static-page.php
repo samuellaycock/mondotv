@@ -31,7 +31,7 @@ function makePage($data) {
         <meta property="description" content="<?php echo $metaDescription; ?>" />
 
         <!-- Twitter summary card metadata -->
-        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:card" content="photo" />
         <meta property="twitter:title" content="<?php echo $data->title; ?>" />
         <meta property="twitter:description" content="<?php echo strip_tags($data->excerpt); ?>" />
         <meta property="twitter:url" content="<?php echo $pageUrl; ?>" />
@@ -44,7 +44,7 @@ function makePage($data) {
         <!-- Facebook, Pinterest, Google Plus and others make use of open graph metadata -->
         <meta property="og:title" content="<?php echo $data->title; ?>" />
         <meta property="og:description" content="<?php echo strip_tags($data->excerpt); ?>" />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="video.other" />
         <meta property="og:url" content="<?php echo $pageUrl; ?>" />
         <?php if (isset($data->featured_image)) {
             ?>

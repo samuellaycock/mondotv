@@ -1,9 +1,9 @@
-function PostController($stateParams, $anchorScroll, $timeout, $location, BlogService, MetadataService) {
+function PostController($stateParams, $anchorScroll, $timeout, $location, PostService, MetadataService) {
     var vm = this;
 
     vm.post = {};
 
-    BlogService.post($stateParams.id).then(function(post) {
+    PostService.post($stateParams.id).then(function(post) {
         vm.post = post;
 
         MetadataService.setMetadata({
