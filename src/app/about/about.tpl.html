@@ -1,13 +1,8 @@
-<h1>About Angular-Wordpress-Seed</h1>
+<h1>{{ vm.post.title }}</h1>
 
 <div class="pure-g page-content">
     <div class="pure-u-1">
-        <p class="lead">
-            This is a basic template app which intends to demonstrate an implementation of an AngularJS app backed
-            by Wordpress via the JSON REST API extension.
-        </p>
-        <p>
-            The full source code and installation instructions can be found on the <a href="https://github.com/michaelbromley/angular-wordpress-seed">angular-wordpress-seed GitHub repository</a>.
-        </p>
+      <div ng-bind-html="vm.post.content">
+      </div>
     </div>
 </div>

@@ -1,10 +1,17 @@
-function AboutController(MetadataService) {
+function AboutController(PostService, MetadataService) {
     var vm = this;
 
-    MetadataService.setMetadata({
-        title: 'About This Blog',
-        description: 'Some des.'
+    vm.post = {};
+
+    PostService.webInfoPostByTag('who-we-are').then(function(post) {
+        vm.post = post;
+
+        MetadataService.setMetadata({
+            title: page.title,
+            description: page.excerpt
+        });
     });
+
 }
 
 angular
