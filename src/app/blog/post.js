@@ -13,7 +13,6 @@ function PostController($stateParams, $anchorScroll, $timeout, $location, PostSe
     });
 }
 
-
 angular
     .module('app')
     .controller('PostController', PostController);
