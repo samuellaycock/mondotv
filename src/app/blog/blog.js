@@ -12,13 +12,13 @@ function BlogController($anchorScroll, $stateParams, $state, PostService, Metada
     });
 
     if (typeof $stateParams.tag !== 'undefined') {
-        apiCallFunction = PostService.allPostsByTag($stateParams.tag);
+        apiCallFunction = PostService.allPostsByCategoryAndTag('blog', $stateParams.tag, 10, 'ASC');
         vm.subtitle = 'tagged with "' + $stateParams.tag + '"';
     } else if (typeof $stateParams.searchTerm !== 'undefined') {
         apiCallFunction = PostService.allPostsBySearchTerm($stateParams.searchTerm);
         vm.subtitle = 'searching "' + $stateParams.searchTerm + '"';
     } else {
-        apiCallFunction = PostService.allPostsByCategory('blog');
+        apiCallFunction = PostService.allPostsByCategory('blog', 10, 'ASC');
     }
 
     apiCallFunction.then(function(posts) {

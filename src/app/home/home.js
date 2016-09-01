@@ -3,7 +3,6 @@ function HomeController(PostService, MetadataService) {
 
     vm.allVideos = [];
     vm.allFeatured = [];
-    vm.bulletins = [];
 
     PostService.allPostsByCategory('video', 10, 'ASC').then(function(posts) {
         vm.allVideos = posts;
@@ -11,10 +10,6 @@ function HomeController(PostService, MetadataService) {
 
     PostService.allFeaturedPosts(5, 'ASC').then(function(posts) {
         vm.allFeatured = posts;
-    });
-
-    PostService.allPostsByCategoryAndTag('bulletin', 'active', 5, 'ASC').then(function(posts) {
-        vm.bulletins = posts;
     });
 
     // pass an empty object to use the defaults.

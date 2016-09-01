@@ -1,9 +1,9 @@
-function AboutController(PostService, MetadataService) {
+function AboutController($stateParams, PostService, MetadataService) {
     var vm = this;
 
     vm.posts = [];
 
-    PostService.webInfoPostByTag('who-we-are').then(function(posts) {
+    PostService.webInfoPostByTag($stateParams.section).then(function(posts) {
         vm.posts = posts;
 
         MetadataService.setMetadata({

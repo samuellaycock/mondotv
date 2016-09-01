@@ -59,8 +59,8 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('about', {
-            url: "/about",
+        .state('other', {
+            url: "/:section",
             views: {
                 'main': {
                     templateUrl: 'about/about.tpl.html',
@@ -97,18 +97,33 @@ var config = {
     API_URL: '%%API_URL%%'
 };
 
-function AppController($rootScope, $window, $location, $timeout, MetadataService) {
+function AppController($rootScope, $window, $location, $timeout, $stateParams, MetadataService, PostService) {
     var vm = this;
 
     vm.showMobileMenu = false;
+    vm.bulletins = [];
+    vm.recentBlogs = [];
 
     vm.toggleMobileMenu = function(e) {
         e.preventDefault();
         vm.showMobileMenu = !vm.showMobileMenu;
     };
 
+    PostService.allPostsByCategoryAndTag('bulletin', 'active', 5, 'ASC').then(function(posts) {
+        vm.bulletins = posts;
+    });
+
+    PostService.allPostsByCategory('video', 5, 'ASC').then(function(posts) {
+        vm.recentBlogs = posts;
+    });
+
     $rootScope.$on('$stateChangeSuccess', function(e, toState) {
-        vm.activeSection = toState.name;
+        if(toState.name == 'other') {
+            vm.activeSection = $stateParams.section;
+        } else {
+            vm.activeSection = toState.name;
+        }
+
         vm.showMobileMenu = false;
     });
 

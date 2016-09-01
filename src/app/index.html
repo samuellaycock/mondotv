@@ -81,16 +81,16 @@
     <nav class="menu-view" ng-class="{'show-mobile-menu': vm.showMobileMenu }" sticky sticky-class="sticky">
         <div class="pure-menu pure-menu-horizontal">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" ui-sref="about" >Who We Are</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" href="about" >Who We Are</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'projects'}" ui-sref="projects" >Projects</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'clients'}" ui-sref="clients" >Clients</a></li>
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'Process'}" ui-sref="process">How It Works</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'Process'}" href="process">How It Works</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'blog' ||
                                              vm.activeSection === 'post' ||
                                              vm.activeSection === 'postsByTag' ||
                                              vm.activeSection === 'postsBySearch'}" ui-sref="blog">Blog</a></li>
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'press'}" ui-sref="press">Press</a></li>
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'contact'}" ui-sref="contact">Contact</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'press'}" href="press">Press</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'contact'}" href="contact">Contact</a></li>
                 <li class="pure-menu-item"><a><span class="icon-search"></span></a></li>
             </ul>
         </div>
@@ -100,6 +100,15 @@
         <div class="content">
             <div ui-view="main"></div>
         </div>
+        <div class="pure-g page-content">
+            <div class="pure-u-1" ng-if="vm.bulletins.length">
+                <hr />
+                <div class="hero-box" ng-repeat="bulletin in vm.bulletins">
+                    <h1>{{ bulletin.title }}</h1>
+                    <a ui-sref="post({ id: bulletin.ID, title: bulletin.slug })" class="pure-button">Read More</a>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -107,6 +116,9 @@
             <hr />
             <div class="pure-u-1-4 blog">
                 <h4>Blog Updates</h4>
+                <ul>
+                    <li ng-repeat="blog in vm.recentBlogs">{{ blog.title }}</li>
+                </ul>
             </div>
             <div class="pure-u-1-4 twitter">
                 <h4>Twitter</h4>
@@ -116,6 +128,11 @@
             </div>
             <div class="pure-u-1-4 contact">
                 <h4>Contact</h4>
+                <ul>
+                    <li><a href=""><span class="icon-location"> 1 Fore Street, London EC2Y 5EJ</span></a></li>
+                    <li><a href="tel:0203 468 5972"><span class="icon-phone"> 0203 468 5972</span></a></li>
+                    <li><a href="mailto:info@mondotv.co"><span class="icon-paper-plane"> info@mondotv.co</span></a></li>
+                </ul>
             </div>
         </section>
         <section class="pure-g footer-social">

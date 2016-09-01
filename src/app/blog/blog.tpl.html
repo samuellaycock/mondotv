@@ -1,11 +1,11 @@
-<h1>Blog <small>{{ vm.subtitle }}</small></h1>
-
 <div class="pure-g page-content">
     <div class="pure-u-1">
 
         <div class="search-container">
             <revealing-search-input search-callback="vm.search(term)"></revealing-search-input>
         </div>
+
+        <h1>Blog <small>{{ vm.subtitle }}</small></h1>
 
         <ul class="no-bullet post-list">
             <li dir-paginate="post in vm.posts | itemsPerPage: 10" class="post-list-row">
