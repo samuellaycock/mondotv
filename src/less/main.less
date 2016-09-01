@@ -188,11 +188,16 @@ body {
 
 .footer {
   background: @colour-text-dark;
+  color: #fff;
 }
 
 .footer > .pure-g {
   max-width: 1200px;
   margin: auto;
+}
+
+.footer > .pure-g > .pure-u-1-4 {
+  padding: 0 1em;
 }
 
 .footer > .footer-info > hr {
@@ -224,6 +229,22 @@ body {
 .footer > .footer-social {
   border: solid @colour-border-dark-bg;
   border-width: 1px 0;
+}
+
+.footer h4 {
+  position: relative;
+  margin: 1em 0;
+  font-size: 1.25em;
+}
+
+.footer h4:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 1px;
+  width: 30px;
+  background: @colour-a-link;
 }
 
 h1, h2, h3, h4, h5, h6 {
