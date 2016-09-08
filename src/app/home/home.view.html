@@ -1,8 +1,8 @@
 <section class="slider-contain">
     <slick class="featured-articles" infinite="true" autoplay="true" dots="true" arrows="true" data="vm.allFeatured" ng-if="vm.allFeatured.length">
-        <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ post.featured_image.attachment_meta.sizes.large.url }})">
+        <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ post.images.value.media_details.sizes.large.source_url }})">
             <div class="slide-content">
-                <h1>{{ post.title }}</h1>
+                <h1>{{ post.title.rendered }}</h1>
                 <a class="pure-button pure-button-primary" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
                 <a class="pure-button pure-button-primary">Get In Touch</a>
             </div>
@@ -15,7 +15,7 @@
         <ul class="pure-g video-list">
             <li ng-repeat="video in vm.allVideos" class="pure-u-1-4 video-item">
                 <a ui-sref="post({ id: video.ID, title: video.slug })">
-                    <img ng-src="{{ video.featured_image.attachment_meta.sizes.medium.url }}" alt="{{ video.title }}" />
+                    <img ng-src="{{ video.images.value.media_details.sizes.medium.source_url }}" alt="{{ video.title.rendered }}" />
                     <p>
                       {{ video.tag }}
                     </p>
@@ -23,4 +23,11 @@
             </li>
         </ul>
     </div>
+    <div class="pure-u-1">
+      <a ng-click="vm.fetchMoreVideos()" class="pure-button pure-button-primary">More</a>
+    </div>
+</section>
+
+<section>
+
 </section>

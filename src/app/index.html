@@ -63,7 +63,7 @@
             </ul>
         </div>
         <div class="pure-u-1-3 header-img">
-            <a href="/mondotv/build/">
+            <a ui-sref="home">
                 <img src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/mondotv-logo-web.png" alt="MondoTV"/>
             </a>
         </div>
@@ -81,10 +81,10 @@
     <nav class="menu-view" ng-class="{'show-mobile-menu': vm.showMobileMenu }" sticky sticky-class="sticky">
         <div class="pure-menu pure-menu-horizontal">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" href="about" >Who We Are</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" ui-sref="about" >Who We Are</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'projects'}" ui-sref="projects" >Projects</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'clients'}" ui-sref="clients" >Clients</a></li>
-                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'Process'}" href="process">How It Works</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'Process'}" ui-sref="process">How It Works</a></li>
                 <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'blog' ||
                                              vm.activeSection === 'post' ||
                                              vm.activeSection === 'postsByTag' ||
@@ -117,7 +117,7 @@
             <div class="pure-u-1-4 blog">
                 <h4>Blog Updates</h4>
                 <ul>
-                    <li ng-repeat="blog in vm.recentBlogs">{{ blog.title }}</li>
+                    <li ng-repeat="blog in vm.recentBlogs">{{ blog.title.rendered }}</li>
                 </ul>
             </div>
             <div class="pure-u-1-4 twitter">
@@ -137,11 +137,11 @@
         </section>
         <section class="pure-g footer-social">
             <ul>
-                <li><span class="icon-vimeo"></span></li>
-                <li><span class="icon-play"></span></li>
-                <li><span class="icon-twitter"></span></li>
-                <li><span class="icon-facebook"></span></li>
-                <li><span class="icon-linkedin"></span></li>
+                <li class="pure-button"><span class="icon-vimeo"></span></li>
+                <li class="pure-button"><span class="icon-play"></span></li>
+                <li class="pure-button"><span class="icon-twitter"></span></li>
+                <li class="pure-button"><span class="icon-facebook"></span></li>
+                <li class="pure-button"><span class="icon-linkedin"></span></li>
             </ul>
         </section>
         <section>
@@ -151,11 +151,18 @@
         </section>
     </footer>
 
+    <script src="../node_modules/lodash/lodash.min.js"></script>
     <!-- inject:js -->
     <!-- endinject -->
 
     <script>
-        // Google Analytics code here
+      !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+      (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+      r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+      }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
     </script>
 
 </body>

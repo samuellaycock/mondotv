@@ -1,14 +1,14 @@
 {
   "PATHS": {
     "build": {
-      "siteUrl": "http://localhost/mondotv/build/",
-      "basePath": "/mondotv/build/",
-      "apiUrl": "http://52.40.41.17/wp-json/"
+      "siteUrl": "http://app.mondotv.test.local/",
+      "basePath": "/build/",
+      "apiUrl": "http://mondotv.test.local/wordpress/wp-json/wp/v2/"
     },
     "dist": {
-      "siteUrl": "http://www.mondotv.co/",
+      "siteUrl": "http://app.mondotv.co/",
       "basePath": "/",
-      "apiUrl": "http://www.mondotv.co/api/wp-json/"
+      "apiUrl": "http://www.mondotv.co/api/wp-json/wp/v2/"
     }
   },
   "DEFAULT_TITLE" : "MondoTV",

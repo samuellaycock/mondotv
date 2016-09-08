@@ -13,7 +13,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/",
             views: {
                 'main': {
-                    templateUrl: 'home/home.tpl.html',
+                    templateUrl: 'home/home.view.html',
                     controller: 'HomeController',
                     controllerAs: 'vm'
                 }
@@ -23,7 +23,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/blog",
             views: {
                 'main': {
-                    templateUrl: 'blog/blog.tpl.html',
+                    templateUrl: 'blog/blog.view.html',
                     controller: 'BlogController',
                     controllerAs: 'vm'
                 }
@@ -33,7 +33,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/tag/:tag",
             views: {
                 'main': {
-                    templateUrl: 'blog/blog.tpl.html',
+                    templateUrl: 'blog/blog.view.html',
                     controller: 'BlogController',
                     controllerAs: 'vm'
                 }
@@ -43,7 +43,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/search/:searchTerm",
             views: {
                 'main': {
-                    templateUrl: 'blog/blog.tpl.html',
+                    templateUrl: 'blog/blog.view.html',
                     controller: 'BlogController',
                     controllerAs: 'vm'
                 }
@@ -53,7 +53,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             url: '/blog/:id/:title',
             views: {
                 'main': {
-                    templateUrl: 'blog/post.tpl.html',
+                    templateUrl: 'blog/post.view.html',
                     controller: 'PostController',
                     controllerAs: 'vm'
                 }
@@ -63,7 +63,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             url: "/:section",
             views: {
                 'main': {
-                    templateUrl: 'about/about.tpl.html',
+                    templateUrl: 'about/about.view.html',
                     controller: 'AboutController',
                     controllerAs: 'vm'
                 }
@@ -113,7 +113,7 @@ function AppController($rootScope, $window, $location, $timeout, $stateParams, M
         vm.bulletins = posts;
     });
 
-    PostService.allPostsByCategory('video', 5, 'ASC').then(function(posts) {
+    PostService.allPostsByCategory('blog', 5, 'ASC').then(function(posts) {
         vm.recentBlogs = posts;
     });
 
@@ -147,6 +147,7 @@ function AppController($rootScope, $window, $location, $timeout, $stateParams, M
 
 angular
     .module('app')
+    .constant('_', window._)
     .config(routesConfig)
     .constant('config', config)
     .controller('AppController', AppController);

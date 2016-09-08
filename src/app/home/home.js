@@ -1,21 +1,39 @@
-function HomeController(PostService, MetadataService) {
-    var vm = this;
+function HomeController(PostService, MediaService, MetadataService) {
+  var vm = this;
 
-    vm.allVideos = [];
-    vm.allFeatured = [];
+  vm.allFeatured = [];
+  vm.allVideos = [];
+  vm.videoCount = 0;
 
-    PostService.allPostsByCategory('video', 10, 'ASC').then(function(posts) {
-        vm.allVideos = posts;
+  vm.fetchMoreVideos = function() {
+    vm.videoCount += 8;
+
+    PostService.allPostsByCategory('video', 8, 'asc', vm.videoCount).then(function(posts) {
+      posts.map(function(post) {
+        MediaService.decorateObjectWithMedia(post);
+      });
+      vm.allVideos.push.apply(vm.allVideos, posts);
     });
+  };
 
-    PostService.allFeaturedPosts(5, 'ASC').then(function(posts) {
-        vm.allFeatured = posts;
+  PostService.allFeaturedPosts(5, 'asc', 1).then(function(posts) {
+    posts.map(function(post) {
+      MediaService.decorateObjectWithMedia(post);
     });
+    vm.allFeatured = posts;
+  });
 
-    // pass an empty object to use the defaults.
-    MetadataService.setMetadata({});
+  PostService.allPostsByCategory('video', 8, 'asc', vm.videoPage).then(function(posts) {
+    posts.map(function(post) {
+      MediaService.decorateObjectWithMedia(post);
+    });
+    vm.allVideos = posts;
+  });
+
+  // pass an empty object to use the defaults.
+  MetadataService.setMetadata({});
 }
 
 angular
-    .module('app')
-    .controller('HomeController', HomeController);
+  .module('app')
+  .controller('HomeController', HomeController);
