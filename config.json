@@ -2,8 +2,8 @@
   "PATHS": {
     "build": {
       "siteUrl": "http://app.mondotv.test.local/",
-      "basePath": "/build/",
-      "apiUrl": "http://mondotv.test.local/wordpress/wp-json/wp/v2/"
+      "basePath": "/mondotv/build/",
+      "apiUrl": "../../wordpress/wp-json/wp/v2/"
     },
     "dist": {
       "siteUrl": "http://app.mondotv.co/",
