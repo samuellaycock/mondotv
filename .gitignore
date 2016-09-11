@@ -3,6 +3,7 @@ dist
 .idea
 node_modules
 bower_components
+.remote-sync.json
 
 # Windows image file caches
 Thumbs.db
