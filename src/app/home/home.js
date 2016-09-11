@@ -8,7 +8,7 @@ function HomeController(PostService, MediaService, MetadataService) {
 
   vm.fetchMoreVideos = function() {
     vm.videoCount += 10;
-    
+
     if (vm.videoCount === 40) {
       vm.moreVideos = false;
     }
@@ -28,7 +28,7 @@ function HomeController(PostService, MediaService, MetadataService) {
     vm.allFeatured = posts;
   });
 
-  PostService.allPostsByCategory('video', 10, 'asc', vm.videoPage).then(function(posts) {
+  PostService.allPostsByCategory('video', 10, 'asc', vm.videoCount).then(function(posts) {
     posts.map(function(post) {
       MediaService.decorateObjectWithMedia(post);
     });

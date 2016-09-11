@@ -132,9 +132,26 @@
 
 .video-list >.video-item {
   margin: 0.5em 0 2em;
-  padding: 0 3em;
 }
 
 .video-list >.video-item img {
+  margin: auto;
+  width: 220px;
   .border-radius(0.188em);
+}
+
+.video-list >.video-item:nth-child(5n+1) img {
+  margin: auto auto auto 0;
+}
+
+.video-list >.video-item:nth-child(5n+2) img {
+  margin: auto auto auto  ~'calc((100% - 220px) / 4)';
+}
+
+.video-list >.video-item:nth-child(5n+4) img {
+  margin: auto ~'calc((100% - 220px) / 4)' auto auto;
+}
+
+.video-list >.video-item:nth-child(5n+5) img {
+  margin: auto 0 auto auto;
 }

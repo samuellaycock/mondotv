@@ -99,17 +99,6 @@ body {
   color: #0077b5;
 }
 
-.mobile-menu-button {
-  font-size: 32px;
-  position: fixed;
-  z-index: 50;
-  left: 8px;
-  top: 30px;
-  @media (min-width: 35.5em) {
-    display: none;
-  }
-}
-
 .menu-view {
   background: #fff;
   transform: translateX(-100vw);
@@ -119,15 +108,9 @@ body {
 
   @media (min-width: 35.5em) {
     padding: 0.5em 0;
-    border: solid @colour-border-light-bg;
-    border-width: 1px 0;
     transform: none;
     position: inherit;
     font-size: 1em;
-  }
-
-  &.show-mobile-menu {
-    transform: none;
   }
 
   .menu {
@@ -240,22 +223,26 @@ body {
   position: absolute;
   bottom: -8px;
   left: 0;
-  height: 1px;
+  height: 2px;
   width: 30px;
   background: @colour-a-link;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-weight: normal;
-  text-transform: lowercase;
+  text-transform: uppercase;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: @font-weight-bold
 }
 
 h1, h2, h3 {
-  font-family: @font-heading;
+  font-family: @font-brand;
 }
 
 h4, h5, h6 {
-  font-family: @font-subheading;
+  font-family: @font-heading;
 }
 
 h1 {

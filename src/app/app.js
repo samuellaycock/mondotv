@@ -100,20 +100,14 @@ var config = {
 function AppController($rootScope, $window, $location, $timeout, $stateParams, MetadataService, PostService) {
     var vm = this;
 
-    vm.showMobileMenu = false;
     vm.bulletins = [];
     vm.recentBlogs = [];
 
-    vm.toggleMobileMenu = function(e) {
-        e.preventDefault();
-        vm.showMobileMenu = !vm.showMobileMenu;
-    };
-
-    PostService.allPostsByCategoryAndTag('bulletin', 'active', 5, 'ASC').then(function(posts) {
+    PostService.allPostsByCategoryAndTag('bulletin', 'active', 5, 'asc', 0).then(function(posts) {
         vm.bulletins = posts;
     });
 
-    PostService.allPostsByCategory('blog', 5, 'ASC').then(function(posts) {
+    PostService.allPostsByCategory('blog', 5, 'asc', 0).then(function(posts) {
         vm.recentBlogs = posts;
     });
 
@@ -123,8 +117,6 @@ function AppController($rootScope, $window, $location, $timeout, $stateParams, M
         } else {
             vm.activeSection = toState.name;
         }
-
-        vm.showMobileMenu = false;
     });
 
     $rootScope.$watchCollection( function() {
