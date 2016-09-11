@@ -115,7 +115,7 @@ gulp.task('styles', function() {
     var deferred = Q.defer();
     var vendorStyles, appStyles;
 
-    clean(['./build/**/*.css', 'dist/**/*.css']).then(function() {
+    clean(['./build/**/*.css', './dist/**/*.css']).then(function() {
         log('building CSS');
         appStyles = gulp.src('src/less/main.less')
             .pipe(less())
@@ -157,7 +157,7 @@ gulp.task('templates', function() {
 gulp.task('static-assets', function() {
     var deferred = Q.defer();
 
-    clean(['./build/assets', 'dist/assets']).then(function() {
+    clean(['./build/assets', './dist/assets']).then(function() {
         var detritus, staticPage, htaccess, assets;
         log('copying static assets');
 

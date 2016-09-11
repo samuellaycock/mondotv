@@ -1,4 +1,22 @@
-<section class="slider-contain">
+<section class="pure-g page-content" ng-controller="HomeController as vm">
+    <div class="pure-u-1">
+        <ul class="pure-g video-list">
+            <li ng-repeat="video in vm.allVideos" class="pure-u-1-5 video-item">
+                <a ui-sref="post({ id: video.ID, title: video.slug })">
+                    <img class="pure-img" ng-src="{{ video.images.value.media_details.sizes.medium.source_url }}" alt="{{ video.title.rendered }}" />
+                    <p>
+                      {{ video.tag }}
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="pure-u-1">
+      <a ng-click="vm.fetchMoreVideos()" class="pure-button pure-button-primary" ng-if="vm.moreVideos">More</a>
+    </div>
+</section>
+
+<section class="slider-contain page-content">
     <slick class="featured-articles" infinite="true" autoplay="true" dots="true" arrows="true" data="vm.allFeatured" ng-if="vm.allFeatured.length">
         <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ post.images.value.media_details.sizes.large.source_url }})">
             <div class="slide-content">
@@ -8,24 +26,6 @@
             </div>
         </div>
     </slick>
-</section>
-
-<section class="pure-g page-content" ng-controller="HomeController as vm">
-    <div class="pure-u-1">
-        <ul class="pure-g video-list">
-            <li ng-repeat="video in vm.allVideos" class="pure-u-1-4 video-item">
-                <a ui-sref="post({ id: video.ID, title: video.slug })">
-                    <img ng-src="{{ video.images.value.media_details.sizes.medium.source_url }}" alt="{{ video.title.rendered }}" />
-                    <p>
-                      {{ video.tag }}
-                    </p>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="pure-u-1">
-      <a ng-click="vm.fetchMoreVideos()" class="pure-button pure-button-primary">More</a>
-    </div>
 </section>
 
 <section>
