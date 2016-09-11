@@ -46,10 +46,11 @@
 
   </head>
   <body ng-controller="AppController as vm">
-    
+
     <nav class="menu-view" ng-class="{'show-mobile-menu': vm.showMobileMenu }" sticky sticky-class="sticky">
       <div class="pure-menu pure-menu-horizontal">
         <ul class="pure-menu-list">
+          <li class="pure-menu-item"><a href="/"><img src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/mondotv-logo-web.jpg" alt="MondoTV"/></a></li>
           <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'about'}" ui-sref="about" >Who We Are</a></li>
           <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'projects'}" ui-sref="projects" >Projects</a></li>
           <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'clients'}" ui-sref="clients" >Clients</a></li>
