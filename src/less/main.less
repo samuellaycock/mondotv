@@ -27,7 +27,7 @@ nav.sticky ~ .header {
 }
 
 .header {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -50,8 +50,13 @@ nav.sticky ~ .header {
   color: @colour-a-hover;
 }
 
-.header a {
+.header a:not(.pure-button) {
   letter-spacing: 0.15em;
+}
+
+.header a.pure-button {
+  font-size: 85%;
+  .border-radius(0.294em);
 }
 
 .header-info > li {
@@ -114,7 +119,7 @@ nav.sticky ~ .header {
 }
 
 .pure-menu {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -164,17 +169,17 @@ a.pure-menu-link:focus {
 
 .page-content {
   margin: auto;
-  max-width: 1600px;
+  max-width: 1400px;
   position: relative;
 }
 
 .footer {
-  background: @colour-text-dark;
+  background: @colour-main-view-placeholder;
   color: #fff;
 }
 
 .footer > .pure-g {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -194,10 +199,11 @@ a.pure-menu-link:focus {
 .footer > .footer-info > hr:before, hr:after {
   position: absolute;
   content: '';
-  height: 3px;
+  height: 2px;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 5;
 }
 
 .footer > .footer-info > hr:before {
@@ -296,6 +302,28 @@ blockquote {
 
 button {
   outline-color: transparent;
+}
+
+.pure-button {
+  padding: 0.313em 0.875em;
+  background: transparent;
+  color: @colour-text-deemphasize;
+  border: 1px solid;
+  border-color: @colour-text-deemphasize;
+  .border-radius(0.313em);
+}
+
+.pure-button.pure-button-primary {
+  background: @colour-a-link;
+  border-color: @colour-a-link;
+}
+
+.pure-button:hover,
+.pure-button:active,
+.pure-button:focus {
+  background: transparent;
+  color: @colour-a-link;
+  border-color: @colour-a-link;
 }
 
 .no-bullet {
