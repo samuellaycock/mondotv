@@ -45,16 +45,16 @@
       <input type="radio" ng-model="filters.tags" value="category-thriller" />
       <span class="pure-button">Thriller</span>
     </label>
-    <select class="pure-button">
-      <option>Brand</option>
-      <option>Brand One</option>
-      <option>Brand Two</option>
-      <option>Brand Three</option>
-      <option>Brand Four</option>
+    <select class="pure-button" ng-model="filters.tags">
+      <option value="">All Brands</option>
+      <option value="category-brand-one">Brand One</option>
+      <option value="category-brand-two">Brand Two</option>
+      <option value="category-brand-three">Brand Three</option>
+      <option value="category-brand-four">Brand Four</option>
     </select>
     {{ filters.tags }}
     <ul class="pure-g video-list">
-      <li ng-repeat="video in vm.allVideos | filter:filters.tags" class="pure-u-1-5 video-item" ng-class="video.tags">
+      <li ng-repeat="video in vm.allVideos | filter:filters.tags | filter:filters.categories" class="pure-u-1-5 video-item" ng-class="video.tags">
         <a ui-sref="post({ id: video.id, title: video.slug })">
           <img class="pure-img" ng-src="{{ video.featured_media.sizes.medium.source_url }}" alt="{{ video.title.rendered }}" />
         </a>
