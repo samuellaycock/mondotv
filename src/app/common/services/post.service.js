@@ -7,7 +7,7 @@
  * @returns {{allPostsByCategory: allPostsByCategory, allPostsByTag: allPostsByTag, allPostsByCategoryAndTag: allPostsByCategoryAndTag, allPostsBySearchTerm: allPostsBySearchTerm, allFeaturedPosts: allFeaturedPosts, featuredPostsByCategory: featuredPostsByCategory, webInfoPostByTag: webInfoPostByTag, singlePostById: singlePostById}}
  * @constructor
  */
-function PostService(_, DataService) {
+function PostService(DataService) {
 
   // Search and return all posts by category
   function allPostsByCategory(category, amount, order, offset) {

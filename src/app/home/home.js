@@ -1,4 +1,4 @@
-function HomeController(PostService, MediaService, MetadataService) {
+function HomeController(PostService, DecoratorService, MetadataService) {
   var vm = this;
 
   vm.allFeatured = [];
@@ -15,7 +15,7 @@ function HomeController(PostService, MediaService, MetadataService) {
 
     PostService.allPostsByCategory('video', 10, 'asc', vm.videoCount).then(function(posts) {
       posts.map(function(post) {
-        MediaService.decorateObjectWithMedia(post);
+        DecoratorService.decorateObject(post);
       });
       vm.allVideos.push.apply(vm.allVideos, posts);
     });
@@ -23,14 +23,14 @@ function HomeController(PostService, MediaService, MetadataService) {
 
   PostService.allFeaturedPosts(5, 'asc', 1).then(function(posts) {
     posts.map(function(post) {
-      MediaService.decorateObjectWithMedia(post);
+      DecoratorService.decorateObject(post);
     });
     vm.allFeatured = posts;
   });
 
   PostService.allPostsByCategory('video', 10, 'asc', vm.videoCount).then(function(posts) {
     posts.map(function(post) {
-      MediaService.decorateObjectWithMedia(post);
+      DecoratorService.decorateObject(post);
     });
     vm.allVideos = posts;
   });
