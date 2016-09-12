@@ -50,7 +50,7 @@ nav.sticky ~ .header {
   color: @colour-a-hover;
 }
 
-.header a {
+.header a:not(.pure-button) {
   letter-spacing: 0.15em;
 }
 
@@ -169,7 +169,7 @@ a.pure-menu-link:focus {
 }
 
 .footer {
-  background: @colour-text-dark;
+  background: @colour-main-view-placeholder;
   color: #fff;
 }
 
@@ -198,6 +198,7 @@ a.pure-menu-link:focus {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 5;
 }
 
 .footer > .footer-info > hr:before {
@@ -296,6 +297,21 @@ blockquote {
 
 button {
   outline-color: transparent;
+}
+
+.pure-button {
+  padding: 0.313em 0.875em;
+  background: transparent;
+  color: @colour-text-deemphasize;
+  border: 1px solid;
+  border-color: @colour-text-deemphasize;
+  .border-radius(0.313em);
+}
+
+.pure-button:hover {
+  background: transparent;
+  color: @colour-a-link;
+  border-color: @colour-a-link;
 }
 
 .no-bullet {
