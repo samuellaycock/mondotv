@@ -1,8 +1,11 @@
-function HomeController(PostService, DecoratorService, MetadataService) {
+function HomeController(PostService, TagService, DecoratorService, MetadataService) {
   var vm = this;
 
   vm.allFeatured = [];
   vm.allVideos = [];
+  vm.categories = [];
+  vm.barnds = [];
+
   vm.videoCount = 0;
   vm.moreVideos = true;
   vm.loading = true;
@@ -38,6 +41,10 @@ function HomeController(PostService, DecoratorService, MetadataService) {
     });
     vm.loading = false;
     vm.allVideos = posts;
+  });
+
+  TagService.allTagsBySearchTerm('category-').then(function(tags) {
+    vm.categories = tags;
   });
 
   // pass an empty object to use the defaults.

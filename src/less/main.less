@@ -15,7 +15,7 @@
 
 html,
 body {
-  padding-top: 2em;
+  padding-top: 1.5em;
   font-family: @font-main;
   font-weight: @font-weight-normal;
   color: @colour-text-content;
@@ -128,12 +128,15 @@ nav {
   display: inline-block;
   width: 0;
   height: 40px;
+  background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/menu-logo-animated.gif') no-repeat left center;
+  background-size: 100%;
+  opacity: 0;
   .transition(~'all 0.3s ease-out');
 }
 
 nav.sticky .pure-menu-item.menu-logo {
-  width: 0;
-  .animation(~'menuLogoIn 0.3s ease-in');
+  width: 120px;
+  opacity: 1;
 }
 
 .pure-menu-item > a.pure-menu-link {
@@ -153,7 +156,7 @@ a.pure-menu-link:focus {
 }
 
 .bulletin {
-  margin: 1em auto;
+  margin: 0 auto;
   max-width: 800px;
   text-align: center;
   .linear-gradient(45deg, @colour-a-link, @colour-a-hover);
@@ -161,6 +164,10 @@ a.pure-menu-link:focus {
   .border-radius(0.188em);
   padding: 0.5em;
   .box-shadow(@box-shadow);
+}
+
+.bulletin .pure-button {
+  margin: 0 1em;
 }
 
 .main-view {
@@ -177,24 +184,20 @@ a.pure-menu-link:focus {
   }
 }
 
-.footer {
-  background: @colour-main-view-placeholder;
-  color: #fff;
-}
-
 .footer > .pure-g {
   max-width: 1400px;
   margin: auto;
 }
 
-.footer > .footer-about > hr {
+.footer > hr {
   position: relative;
-  margin: 0;
-  width: 100%;
+  margin: 5em auto 4em;
+  max-width: 40%;
   border: none;
 }
 
-.footer > .footer-about > hr:before, hr:after {
+.footer > hr:before,
+.footer > hr:after {
   position: absolute;
   content: '';
   height: 2px;
@@ -204,30 +207,52 @@ a.pure-menu-link:focus {
   z-index: 5;
 }
 
-.footer > .footer-info > hr:before {
+.footer > hr:before {
   max-width: 1400px;
   .linear-gradient-multi(@gradient-rainbow);
 }
 
+.footer > .footer-about > .about {
+  margin: 0 auto 2em;
+  padding: 0.5em 2em;
+  max-width: 800px;
+  border: 1px solid @colour-border-light-bg;
+  .border-radius(0.5em);
+}
+
 .footer > .footer-social {
-  border: solid @colour-border-dark-bg;
-  border-width: 1px 0;
+  text-align: center;
 }
 
-.footer h4 {
-  position: relative;
-  margin: 0 0 1.5em;
-  font-size: 1.25em;
+.footer > .footer-social ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-.footer h4:after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  height: 2px;
-  width: 30px;
-  background: @colour-a-link;
+.footer > .footer-social .pure-button {
+  display: inline-block;
+  margin: 0 0.75em;
+  padding: 0.375em 0.5em;
+  font-size: 0.875;
+  height: 1.875em;
+  width: 1.875em;
+  border-radius: 50%;
+}
+
+.footer > .footer-social .pure-button span {
+  line-height: 1.25em;
+  margin-left: -0.25em;
+  vertical-align: middle;
+}
+
+.footer-mondo {
+  padding: 1.5em 0 3em;
+  text-align: center;
+}
+
+.footer-mondo p {
+  margin: 0;
 }
 
 h1 {
@@ -479,7 +504,7 @@ input:checked + .hover-dark-blue {
 }
 
 .ng-leave {
-  .animation(~'fadeOut 0.3s');
+  .animation(~'fadeOut 0.5s');
 }
 
 @keyframes fadeIn {
@@ -515,33 +540,5 @@ input:checked + .hover-dark-blue {
   }
   100% {
     opacity: 0;
-  }
-}
-
-@keyframes menuLogoIn {
-  0% {
-    width: 0;
-    background: none;
-  }
-  95% {
-    width: 130px;
-  }
-  100% {
-    background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/menu-logo-animated.gif') no-repeat center center;
-    background-size:cover;
-  }
-}
-
-@-webkit-keyframes menuLogoIn {
-  0% {
-    width: 0;
-    background: none;
-  }
-  95% {
-    width: 130px;
-  }
-  100% {
-    background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/menu-logo-animated.gif') no-repeat center center;
-    background-size:cover;
   }
 }

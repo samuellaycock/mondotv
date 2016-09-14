@@ -26,7 +26,7 @@ function PostService(DataService) {
 
   // Search and return all posts by search term
   function allPostsBySearchTerm(searchTerm, amount, order, offset) {
-    return DataService.getData('posts?filter[s]=' + searchTerm + '&filter[posts_per_page]=' + amount + '&filter[offset]=' + offset + '&filter[order]=' + order);
+    return DataService.getData('posts?search=' + searchTerm + '&filter[posts_per_page]=' + amount + '&filter[offset]=' + offset + '&filter[order]=' + order);
   }
 
   function allFeaturedPosts(amount, order, offset) {

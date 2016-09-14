@@ -44,6 +44,28 @@
     <!-- inject:css -->
     <!-- endinject -->
 
+    <!-- Loading styles -->
+    <style>
+      .main-loading-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #fff;
+      }
+
+      .main-loading-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        height: 80px;
+        width: auto;
+      }
+    </style>
+
   </head>
   <body ng-controller="AppController as vm" class="{{ vm.activeSection }}">
 
@@ -81,18 +103,18 @@
         <div class="pure-dropdown">
           <a class="pure-button">@mondotvuk</a>
           <ul class="dropdown-menu header-social">
-            <li><a href=""><span class="icon-vimeo-circled"></span></a></li>
-            <li><a href=""><span class="icon-play-circle"></span></a></li>
-            <li><a href=""><span class="icon-twitter-circled"></span></a></li>
-            <li><a href=""><span class="icon-facebook-circled"></span></a></li>
-            <li><a href=""><span class="icon-linkedin-circled"></span></a></li>
+            <li><a href=""><span class="icon-vimeo"></span></a></li>
+            <li><a href=""><span class="icon-play"></span></a></li>
+            <li><a href=""><span class="icon-twitter"></span></a></li>
+            <li><a href=""><span class="icon-facebook"></span></a></li>
+            <li><a href=""><span class="icon-linkedin"></span></a></li>
           </ul>
         </div>
       </div>
     </section>
 
     <main class="main-view">
-      <div class="pure-g page-content">
+      <div class="pure-g page-content ng-cloak">
         <div class="pure-u-1" ng-if="vm.bulletins.length">
           <div class="bulletin" ng-repeat="bulletin in vm.bulletins">
             <h1>{{ bulletin.title }}</h1>
@@ -100,15 +122,21 @@
           </div>
         </div>
       </div>
-      <div class="content">
-        <div ui-view="main"></div>
+      <div class="content ng-cloak">
+        <div ui-view="main">
+          <div class="main-loading-container">
+            <img class="main-loading-icon" src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/loading.gif" alt="MondoTV.co is loading..." />
+          </div>
+        </div>
       </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer ng-cloak">
+      <hr />
       <section class="pure-g footer-about">
-        <hr />
-
+        <div class="about">
+          <h2>{{ vm.about[0].title.rendered }}</h2>
+        </div>
       </section>
       <section class="pure-g footer-social">
         <ul>
@@ -119,14 +147,15 @@
           <li class="pure-button"><span class="icon-linkedin"></span></li>
         </ul>
       </section>
-      <section>
-        <ul>
-          <li></li>
-        </ul>
+      <section class="footer-mondo">
+        <p>MondoTV</p>
+        <p>1 Fore Street, London EC2Y 5EJ</p>
       </section>
     </footer>
 
-    <script src="../node_modules/lodash/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js"></script
+
     <!-- inject:js -->
     <!-- endinject -->
 

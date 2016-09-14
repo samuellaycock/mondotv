@@ -3,17 +3,22 @@
  *
  * @param $http
  * @param config
- * @returns {{allTags: allTags, singleTagById: singleTagById, decorateObjectWithTag: decorateObjectWithTag}}
+ * @returns {{allTags: allTags, allTagsBySearchTerm: allTagsBySearchTerm, singleTagById: singleTagById, decorateObjectWithTag: decorateObjectWithTag}}
  * @constructor
  */
 function TagService(DataService) {
 
-    // Search and return all media
+    // Search and return all tags
     function allTags() {
         return DataService.getData('tags');
     }
 
-    // Search and return single media object by ID
+    // Search and return all tags by search term
+    function allTagsBySearchTerm(searchTerm) {
+      return DataService.getData('tags?search=' + searchTerm);
+    }
+
+    // Search and return single tag object by ID
     function singleTagById(id) {
         return DataService.getData('tags/' + id);
     }
@@ -39,6 +44,7 @@ function TagService(DataService) {
 
     return {
         allTags: allTags,
+        allTagsBySearchTerm: allTagsBySearchTerm,
         singleTagById: singleTagById,
         decorateObjectWithTag: decorateObjectWithTag
     };
