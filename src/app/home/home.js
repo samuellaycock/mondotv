@@ -1,12 +1,18 @@
-function HomeController(PostService, DecoratorService, MetadataService) {
+function HomeController(PostService, TagService, DecoratorService, MetadataService) {
   var vm = this;
 
   vm.allFeatured = [];
   vm.allVideos = [];
+  vm.categories = [];
+  vm.barnds = [];
+
   vm.videoCount = 0;
   vm.moreVideos = true;
+  vm.loading = true;
+  vm.filters = { 'tags' : '""' };
 
   vm.fetchMoreVideos = function() {
+    vm.loading = true;
     vm.videoCount += 10;
 
     if (vm.videoCount === 40) {
@@ -17,6 +23,7 @@ function HomeController(PostService, DecoratorService, MetadataService) {
       posts.map(function(post) {
         DecoratorService.decorateObject(post);
       });
+      vm.loading = false;
       vm.allVideos.push.apply(vm.allVideos, posts);
     });
   };
@@ -32,7 +39,12 @@ function HomeController(PostService, DecoratorService, MetadataService) {
     posts.map(function(post) {
       DecoratorService.decorateObject(post);
     });
+    vm.loading = false;
     vm.allVideos = posts;
+  });
+
+  TagService.allTagsBySearchTerm('category-').then(function(tags) {
+    vm.categories = tags;
   });
 
   // pass an empty object to use the defaults.

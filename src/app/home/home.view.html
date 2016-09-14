@@ -1,68 +1,33 @@
 <section class="pure-g page-content" ng-controller="HomeController as vm">
-  <div class="pure-u-1">
+  <div class="pure-u-1 filter-list">
     <label>
       <input type="radio" ng-model="filters.tags" value="" />
-      <span class="pure-button">All</span>
+      <span class="pure-button hover-brand">All</span>
     </label>
-    <label>
+    <label ng-repeat="tag in vm.categories">
       <input type="radio" ng-model="filters.tags" value="category-action" />
-      <span class="pure-button">Action</span>
+      <span class="pure-button hover-orange">{{ tag.name }}</span>
     </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-adventure" />
-      <span class="pure-button">Adventure</span>
-    </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-comedy" />
-      <span class="pure-button">Comedy</span>
-    </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-crime" />
-      <span class="pure-button">Crime</span>
-    </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-drama" />
-      <span class="pure-button">Drama</span>
-    </label>
-    <br />
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-family" />
-      <span class="pure-button">Family</span>
-    </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-fantasy" />
-      <span class="pure-button">Fantasy</span>
-    </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-history" />
-      <span class="pure-button">History</span>
-    </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-scifi" />
-      <span class="pure-button">Sci-Fi</span>
-    </label>
-    <label>
-      <input type="radio" ng-model="filters.tags" value="category-thriller" />
-      <span class="pure-button">Thriller</span>
-    </label>
-    <select class="pure-button" ng-model="filters.tags">
+    <select class="pure-button hover-blue" ng-model="filters.tags">
       <option value="">All Brands</option>
       <option value="category-brand-one">Brand One</option>
       <option value="category-brand-two">Brand Two</option>
       <option value="category-brand-three">Brand Three</option>
       <option value="category-brand-four">Brand Four</option>
     </select>
-    {{ filters.tags }}
-    <ul class="pure-g video-list">
-      <li ng-repeat="video in vm.allVideos | filter:filters.tags | filter:filters.categories" class="pure-u-1-5 video-item" ng-class="video.tags">
+  </div>
+  <div class="pure-u-1">
+    <ul class="pure-g video-list" masonry="true">
+      <li ng-repeat="video in vm.allVideos | filter:filters.tags | filter:filters.categories" class="pure-u-1-5 video-item ng-cloak" ng-class="video.tags">
         <a ui-sref="post({ id: video.id, title: video.slug })">
           <img class="pure-img" ng-src="{{ video.featured_media.sizes.medium.source_url }}" alt="{{ video.title.rendered }}" />
         </a>
       </li>
     </ul>
   </div>
-  <div class="pure-u-1">
-    <a ng-click="vm.fetchMoreVideos()" class="pure-button pure-button-primary" ng-if="vm.moreVideos">More</a>
+  <div class="pure-u-1 button-section">
+    <img class="loading-icon" src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/loading.gif" alt="Content loading" ng-if="vm.loading" /><br />
+    <a ng-click="vm.fetchMoreVideos()" class="pure-button pure-button-primary" ng-if="vm.moreVideos">More Videos <span class="icon-plus"></span></a>
   </div>
 </section>
 
@@ -71,8 +36,8 @@
     <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ post.featured_media.sizes.large.source_url }})">
       <div class="slide-content">
         <h1>{{ post.title.rendered }}</h1>
-        <a class="pure-button pure-button-primary" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
-        <a class="pure-button pure-button-primary">Get In Touch</a>
+        <a class="pure-button" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
+        <a class="pure-button">Get In Touch</a>
       </div>
     </div>
   </slick>
