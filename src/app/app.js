@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky', 'wu.masonry', 'ui.bootstrap', 'bootstrapLightbox', 'videosharing-embed']);
+angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky', 'wu.masonry']);
 
 /**
  *

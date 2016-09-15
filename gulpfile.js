@@ -44,10 +44,7 @@ var VENDOR_SCRIPTS = [
     'bower_components/angular-utils-pagination/dirPagination.js',
     'bower_components/angular-slick/dist/slick.js',
     'bower_components/ngSticky/dist/sticky.min.js',
-    'bower_components/angular-masonry/angular-masonry.js',
-    'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-    'bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.js',
-    'bower_components/ng-videosharing-embed/build/ng-videosharing-embed.min.js'
+    'bower_components/angular-masonry/angular-masonry.js'
 ];
 
 var log = function(message) {
