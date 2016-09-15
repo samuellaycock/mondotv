@@ -59,6 +59,16 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('terms', {
+      url: "/:type",
+      views: {
+        'main': {
+          templateUrl: 'terms/terms.view.html',
+          controller: 'TermsController',
+          controllerAs: 'vm'
+        }
+      }
+    })
     .state('other', {
       url: "/:section",
       views: {

@@ -28,6 +28,7 @@ var VENDOR_SCRIPTS = [
     'bower_components/modernizr/modernizr-custom.js',
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/jquery-bridget/jquery.bridget.js',
+    'bower_components/lity/dist/lity.min.js',
 
     'bower_components/ev-emitter/ev-emitter.js',
     'bower_components/desandro-matches-selector/matches-selector.js',

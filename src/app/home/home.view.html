@@ -18,8 +18,8 @@
   </div>
   <div class="pure-u-1">
     <div class="pure-g video-list">
-      <div ng-repeat="video in vm.allVideos | filter:filters.categories" class="pure-u-1-5 video-item" ng-class="video.tags">
-        <a href="https://www.youtube.com/watch?v=5lGoQhFb4NM" ng-click="lightbox.openModal($index)"">
+      <div ng-repeat="video in vm.allVideos | filter:filters.categories" class="pure-u-2 pure-u-sm-1-3 pure-u-lg-1-4 pure-u-xl-1-5 video-item" ng-class="video.tags">
+        <a href="https://www.youtube.com/watch?v=5lGoQhFb4NM" data-lity>
           <img class="pure-img ng-cloak" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
         </a>
       </div>
