@@ -60,7 +60,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
       }
     })
     .state('terms', {
-      url: "/:type",
+      url: "terms/:type",
       views: {
         'main': {
           templateUrl: 'terms/terms.view.html',

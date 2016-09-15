@@ -15,7 +15,7 @@ function TagService(DataService) {
 
     // Search and return all tags by search term
     function allTagsBySearchTerm(searchTerm) {
-      return DataService.getData('tags?search=' + searchTerm);
+      return DataService.getData('tags?search=' + searchTerm + '&filter[posts_per_page]=99');
     }
 
     // Search and return single tag object by ID
@@ -24,10 +24,6 @@ function TagService(DataService) {
     }
 
     function decorateObjectWithTag(object) {
-      function pushToTagArray(data) {
-        tagArray.push(data.slug);
-      }
-
       if (object.tags) {
         var tagArray = [];
 
@@ -36,7 +32,9 @@ function TagService(DataService) {
           if (item > 0) {
             var tagId = item;
 
-            singleTagById(tagId).then(pushToTagArray(tagData));
+            singleTagById(tagId).then(function(tagData) {
+              tagArray.push(tagData.slug);
+            });
           }
         }
         object.tags = tagArray;

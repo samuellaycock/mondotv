@@ -8,10 +8,6 @@
       <input type="radio" ng-model="filters.categories" ng-model-options="{ debounce: 500 }" value="{{ ::tag.slug }}" />
       <span class="pure-button hover-orange">{{ ::tag.name }}</span>
     </label>
-    <select class="pure-button hover-blue" ng-model="filters.brands" ng-model-options="{ debounce:500 }">
-      <option value="">All Brands</option>
-      <option ng-repeat="brand in vm.brands" value="{{ ::brand.slug }}">{{ ::brand.name }}</option>
-    </select>
   </div>
   <div class="pure-u-1">
     <div class="pure-g video-list ng-cloak">
@@ -28,11 +24,11 @@
   </div>
 </section>
 
-<section class="slider-contain page-content" ng-if="vm.allFeatured.length">
-  <slick class="featured-articles ng-cloak" init-onload=true infinite="true" autoplay="true" dots="true" arrows="false" data="vm.allFeatured">
-    <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ post.featured_media.sizes.large.source_url }})">
+<section class="slider-contain page-content">
+  <slick class="featured-articles" init-onload=true infinite=true autoplay=true dots=true arrows=true data="vm.allFeatured" ng-if="vm.allFeatured.length">
+    <div ng-repeat="post in vm.allFeatured" style="background:#333 url({{ post.featured_media.sizes.full.source_url }}) no-repeat center center">
       <div class="slide-content">
-        <h1>{{ post.title.rendered }}</h1>
+        <h1>{{ ::post.title.rendered }}</h1>
         <a class="pure-button" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
         <a class="pure-button">Get In Touch</a>
       </div>
