@@ -61,6 +61,9 @@ nav {
 
 .header-img > .strapline {
   margin-top: 3em;
+  padding: 0 1em;
+  font-family: 'Nexa Bold', sans-serif;
+  text-transform: uppercase;
 }
 
 .header-social {
@@ -144,15 +147,18 @@ nav.sticky .pure-menu-item.menu-logo {
   padding: 0.25em 0.875em;
   font-weight: @font-weight-extra-bold;
   letter-spacing: 0.15em;
+  border: 1px solid;
+  border-color: transparent;
   .border-radius(0.313em);
-  .transition(~'color 0.25s, background-color 0.5s');
+  .transition(~'all 0.5s');
 }
 
-.pure-menu-active > a.pure-menu-link,
-a.pure-menu-link:hover,
-a.pure-menu-link:focus {
-    color: @colour-main-view-bg;
-    background-color: @colour-a-link;
+.pure-menu-item > a.pure-menu-link.selected,
+.pure-menu-item > a.pure-menu-link:hover,
+.pure-menu-item > a.pure-menu-link:focus {
+  background: transparent!important;
+  color:  @colour-a-link;
+  border-color: @colour-a-link;
 }
 
 .bulletin {
@@ -168,6 +174,14 @@ a.pure-menu-link:focus {
 
 .bulletin .pure-button {
   margin: 0 1em;
+}
+
+body.about .main-view,
+body.contact .main-view,
+body.clients .main-view,
+body.projects .main-view {
+  margin: auto;
+  max-width: 800px;
 }
 
 .main-view {
@@ -358,6 +372,14 @@ button {
   border-color: @colour-a-link;
 }
 
+.wpcf7-form {
+  margin: 1em auto;
+  padding: 2em 1em;
+  max-width: 575px;
+  border: 1px solid @colour-border-light-bg;
+  .border-radius(0.5em);
+}
+
 .no-bullet {
   list-style-type: none;
   padding-left: 0;
@@ -504,7 +526,9 @@ input:checked + .hover-dark-blue {
 }
 
 .ng-leave {
+  opacity: 1;
   .animation(~'fadeOut 0.5s');
+  animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {

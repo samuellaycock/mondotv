@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky']);
+angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky', 'wu.masonry']);
 
 /**
  *
@@ -63,8 +63,8 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
       url: "/:section",
       views: {
         'main': {
-          templateUrl: 'about/about.view.html',
-          controller: 'AboutController',
+          templateUrl: 'other/other.view.html',
+          controller: 'OtherController',
           controllerAs: 'vm'
         }
       }
@@ -144,7 +144,9 @@ function AppController($rootScope, $window, $location, $timeout, $stateParams, M
 
 angular
   .module('app')
-  .constant('_', window._)
   .config(routesConfig)
+  .config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.debugInfoEnabled(false);
+  }])
   .constant('config', config)
   .controller('AppController', AppController);

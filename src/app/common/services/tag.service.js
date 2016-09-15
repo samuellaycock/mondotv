@@ -33,7 +33,7 @@ function TagService(DataService) {
             var tagId = item;
 
             singleTagById(tagId).then(function(tagData) {
-              tagArray.push(tagData.name);
+              tagArray.push(tagData.slug);
             });
           }
         }

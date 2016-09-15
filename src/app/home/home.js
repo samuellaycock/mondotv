@@ -4,12 +4,11 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
   vm.allFeatured = [];
   vm.allVideos = [];
   vm.categories = [];
-  vm.barnds = [];
+  vm.brands = [];
 
   vm.videoCount = 0;
   vm.moreVideos = true;
   vm.loading = true;
-  vm.filters = { 'tags' : '""' };
 
   vm.fetchMoreVideos = function() {
     vm.loading = true;

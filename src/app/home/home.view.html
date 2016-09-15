@@ -1,14 +1,14 @@
 <section class="pure-g page-content" ng-controller="HomeController as vm">
-  <div class="pure-u-1 filter-list">
+  <div class="pure-u-1 filter-list ng-cloaked" ng-init="filters.categories=''">
     <label>
-      <input type="radio" ng-model="filters.tags" value="" />
+      <input type="radio" ng-model="filters.categories" ng-model-options="{ debounce: 500 }" value="" />
       <span class="pure-button hover-brand">All</span>
     </label>
     <label ng-repeat="tag in vm.categories">
-      <input type="radio" ng-model="filters.tags" value="category-action" />
-      <span class="pure-button hover-orange">{{ tag.name }}</span>
+      <input type="radio" ng-model="filters.categories" ng-model-options="{ debounce: 500 }" value="{{ tag.slug }}" />
+      <span class="pure-button hover-orange">{{ ::tag.name }}</span>
     </label>
-    <select class="pure-button hover-blue" ng-model="filters.tags">
+    <select class="pure-button hover-blue" ng-model="filters.brands" ng-model-options="{ debounce:500 }">
       <option value="">All Brands</option>
       <option value="category-brand-one">Brand One</option>
       <option value="category-brand-two">Brand Two</option>
@@ -17,13 +17,13 @@
     </select>
   </div>
   <div class="pure-u-1">
-    <ul class="pure-g video-list" masonry="true">
-      <li ng-repeat="video in vm.allVideos | filter:filters.tags | filter:filters.categories" class="pure-u-1-5 video-item ng-cloak" ng-class="video.tags">
+    <div class="pure-g video-list">
+      <div ng-repeat="video in vm.allVideos | filter:filters.categories" class="pure-u-1-5 video-item" ng-class="video.tags">
         <a ui-sref="post({ id: video.id, title: video.slug })">
-          <img class="pure-img" ng-src="{{ video.featured_media.sizes.medium.source_url }}" alt="{{ video.title.rendered }}" />
+          <img class="pure-img ng-cloak" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
   <div class="pure-u-1 button-section">
     <img class="loading-icon" src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/loading.gif" alt="Content loading" ng-if="vm.loading" /><br />
@@ -33,9 +33,9 @@
 
 <section class="slider-contain page-content">
   <slick class="featured-articles" infinite="true" autoplay="true" dots="true" arrows="true" data="vm.allFeatured" ng-if="vm.allFeatured.length">
-    <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ post.featured_media.sizes.large.source_url }})">
+    <div ng-repeat="post in vm.allFeatured" style="background-image:url({{ ::post.featured_media.sizes.large.source_url }})">
       <div class="slide-content">
-        <h1>{{ post.title.rendered }}</h1>
+        <h1>{{ ::post.title.rendered }}</h1>
         <a class="pure-button" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
         <a class="pure-button">Get In Touch</a>
       </div>
