@@ -24,6 +24,10 @@ function TagService(DataService) {
     }
 
     function decorateObjectWithTag(object) {
+      function pushToTagArray(data) {
+        tagArray.push(data.slug);
+      }
+
       if (object.tags) {
         var tagArray = [];
 
@@ -32,9 +36,7 @@ function TagService(DataService) {
           if (item > 0) {
             var tagId = item;
 
-            singleTagById(tagId).then(function(tagData) {
-              tagArray.push(tagData.slug);
-            });
+            singleTagById(tagId).then(pushToTagArray(tagData));
           }
         }
         object.tags = tagArray;
