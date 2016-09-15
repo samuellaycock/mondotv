@@ -19,7 +19,7 @@
   <div class="pure-u-1">
     <div class="pure-g video-list">
       <div ng-repeat="video in vm.allVideos | filter:filters.categories" class="pure-u-1-5 video-item" ng-class="video.tags">
-        <a href="https://www.youtube.com/watch?v=5lGoQhFb4NM">
+        <a href="https://www.youtube.com/watch?v=5lGoQhFb4NM" ng-click="lightbox.openModal($index)"">
           <img class="pure-img ng-cloak" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
         </a>
       </div>
