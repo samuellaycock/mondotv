@@ -46,6 +46,10 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
     vm.categories = tags;
   });
 
+  TagService.allTagsBySearchTerm('brand-').then(function(tags) {
+    vm.brands = tags;
+  });
+
   // pass an empty object to use the defaults.
   MetadataService.setMetadata({});
 }
