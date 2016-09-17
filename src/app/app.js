@@ -17,6 +17,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'HomeController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'tv',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('process', {
@@ -27,6 +31,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'OtherController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'process',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('projects', {
@@ -37,6 +45,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'ProjectController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'projects',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('clients', {
@@ -47,6 +59,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'ClientController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'clients',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('blog', {
@@ -57,6 +73,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'BlogController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'blog',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('post', {
@@ -67,6 +87,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'PostController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'blog',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('postsBySearch', {
@@ -77,6 +101,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'BlogController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'stuff',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('terms', {
@@ -87,6 +115,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'TermsController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'terms',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
     .state('contact', {
@@ -97,6 +129,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'OtherController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: 'hookup',
+        strapline: 'Curious Cats.<br/\><br\/>According to the internet \“experts\”, more than 3 boxes on any e-form will cause 80\% of you to opt out. Ours has more than that because we\’re Curious Cats. Let\’S show those \“experts\” who\’s boss!'
       }
     })
     .state('404', {
@@ -106,6 +142,10 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
           controller: 'OtherController',
           controllerAs: 'vm'
         }
+      },
+      data: {
+        state: '404',
+        strapline: 'Oops! Looks like you\'ve taken a wrong turn. <a href="/">Click here</a> to get back on track.'
       }
     });
 
