@@ -12,11 +12,11 @@
     </label>
   </div>
   <div class="pure-u-1">
-    <div masonry>
+    <masonry column-width="200">
       <div class="masonry-brick" ng-repeat="video in vm.allVideos">
         <img ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}">
       </div>
-    </div>
+    </masonry>
     <hr />
     <!-- Video List -->
     <div class="pure-g video-list ng-cloak">
