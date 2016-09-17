@@ -9,7 +9,7 @@
     ".git/**"
   ],
   "username": "ubuntu",
-  "keyfile": "C:\\Users\\samla\\Downloads\\mondotv-web-server-key.pem",
+  "keyfile": "C://Users/samla/Downloads/mondotv-web-server-key.pem",
   "watch": [],
   "transport": "scp"
 }

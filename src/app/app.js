@@ -19,28 +19,38 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('process', {
+      url: "/process",
+      views: {
+        'main': {
+          templateUrl: 'other/other.view.html',
+          controller: 'OtherController',
+          controllerAs: 'vm'
+        }
+      }
+    })
+    .state('projects', {
+      url: "/projects",
+      views: {
+        'main': {
+          templateUrl: 'projects/projects.view.html',
+          controller: 'ProjectController',
+          controllerAs: 'vm'
+        }
+      }
+    })
+    .state('clients', {
+      url: "/clients",
+      views: {
+        'main': {
+          templateUrl: 'clients/clients.view.html',
+          controller: 'ClientController',
+          controllerAs: 'vm'
+        }
+      }
+    })
     .state('blog', {
       url: "/blog",
-      views: {
-        'main': {
-          templateUrl: 'blog/blog.view.html',
-          controller: 'BlogController',
-          controllerAs: 'vm'
-        }
-      }
-    })
-    .state('postsByTag', {
-      url: "/tag/:tag",
-      views: {
-        'main': {
-          templateUrl: 'blog/blog.view.html',
-          controller: 'BlogController',
-          controllerAs: 'vm'
-        }
-      }
-    })
-    .state('postsBySearch', {
-      url: "/search/:searchTerm",
       views: {
         'main': {
           templateUrl: 'blog/blog.view.html',
@@ -59,6 +69,16 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('postsBySearch', {
+      url: "/search/:searchTerm",
+      views: {
+        'main': {
+          templateUrl: 'blog/blog.view.html',
+          controller: 'BlogController',
+          controllerAs: 'vm'
+        }
+      }
+    })
     .state('terms', {
       url: "terms/:type",
       views: {
@@ -69,18 +89,17 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('projects', {
-      url: "/projects",
+    .state('contact', {
+      url: "/contact",
       views: {
         'main': {
-          templateUrl: 'projects/projects.view.html',
-          controller: 'ProjectController',
+          templateUrl: 'other/other.view.html',
+          controller: 'OtherController',
           controllerAs: 'vm'
         }
       }
     })
-    .state('other', {
-      url: "/:section",
+    .state('404', {
       views: {
         'main': {
           templateUrl: 'other/other.view.html',
@@ -108,6 +127,11 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     if (1 < matches.length) {
       return path.replace(matches[0], matches[1]);
     }
+  })
+  .otherwise(function($injector, $location){
+    var state = $injector.get('$state');
+    state.go('404');
+    return $location.path();
   });
 }
 
