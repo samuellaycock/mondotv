@@ -12,7 +12,7 @@
     </label>
   </div>
   <div class="pure-u-1">
-    <masonry column-width="200">
+    <masonry>
       <div class="masonry-brick" ng-repeat="video in vm.allVideos">
         <img ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}">
       </div>
