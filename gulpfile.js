@@ -33,6 +33,7 @@ var VENDOR_SCRIPTS = [
     'bower_components/ev-emitter/ev-emitter.js',
     'bower_components/desandro-matches-selector/matches-selector.js',
     'bower_components/fizzy-ui-utils/utils.js',
+    'bower_components/get-size/get-size.js',
     'bower_components/outlayer/item.js',
     'bower_components/outlayer/outlayer.js',
     'bower_components/masonry/masonry.js',
