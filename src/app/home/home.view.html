@@ -1,4 +1,6 @@
+<!-- Main Content -->
 <section class="pure-g page-content" ng-controller="HomeController as vm">
+  <!-- Filter List -->
   <div class="pure-u-1 filter-list ng-cloak" ng-init="filters.categories=''">
     <label>
       <input type="radio" ng-model="filters.categories" ng-model-options="{ debounce: 500 }" value="" />
@@ -10,6 +12,13 @@
     </label>
   </div>
   <div class="pure-u-1">
+    <div masonry>
+      <div class="masonry-brick" ng-repeat="video in vm.allVideos">
+        <img ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}">
+      </div>
+    </div>
+    <hr />
+    <!-- Video List -->
     <div class="pure-g video-list ng-cloak">
       <div ng-repeat="video in vm.allVideos | filter:filters.categories" class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-4 pure-u-xl-1-5 video-item" ng-class="video.tags">
         <a href="https://{{ ::video.videoUrl }}" data-lity>
@@ -24,6 +33,7 @@
   </div>
 </section>
 
+<!-- Slider -->
 <section class="slider-contain page-content">
   <slick class="featured-articles" init-onload=true infinite=true autoplay=true dots=true arrows=true data="vm.allFeatured" ng-if="vm.allFeatured.length">
     <div ng-repeat="post in vm.allFeatured" style="background:#333 url({{ post.featured_media.sizes.full.source_url }}) no-repeat center center">
