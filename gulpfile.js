@@ -29,14 +29,6 @@ var VENDOR_SCRIPTS = [
     'bower_components/jquery-bridget/jquery-bridget.js',
     'bower_components/lity/dist/lity.min.js',
 
-    'bower_components/ev-emitter/ev-emitter.js',
-    'bower_components/desandro-matches-selector/matches-selector.js',
-    'bower_components/fizzy-ui-utils/utils.js',
-    'bower_components/get-size/get-size.js',
-    'bower_components/outlayer/item.js',
-    'bower_components/outlayer/outlayer.js',
-    'bower_components/masonry/masonry.js',
-    'bower_components/imagesloaded/imagesloaded.js',
     'bower_components/slick-carousel/slick/slick.js',
 
     'bower_components/angular/angular.js',
@@ -44,8 +36,7 @@ var VENDOR_SCRIPTS = [
     'bower_components/angular-ui-router/release/angular-ui-router.js',
     'bower_components/angular-utils-pagination/dirPagination.js',
     'bower_components/angular-slick/dist/slick.js',
-    'bower_components/ngSticky/dist/sticky.min.js',
-    'bower_components/angular-masonry/angular-masonry.js'
+    'bower_components/ngSticky/dist/sticky.min.js'
 ];
 
 var log = function(message) {

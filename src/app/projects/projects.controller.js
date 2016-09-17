@@ -3,7 +3,7 @@ function ProjectController($stateParams, PostService, MetadataService) {
 
   vm.projects = [];
 
-  PostService.allPostsByCategory('video', 99, 'asc', 0).then(function(posts) {
+  PostService.allPostsByCategory('video', 50, 'asc', 0).then(function(posts) {
     vm.projects = posts;
 
     MetadataService.setMetadata({

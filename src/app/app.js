@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky', 'wu.masonry']);
+angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky']);
 
 /**
  *
@@ -27,8 +27,8 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
       url: "/process",
       views: {
         'main': {
-          templateUrl: 'other/other.view.html',
-          controller: 'OtherController',
+          templateUrl: 'process/process.view.html',
+          controller: 'ProcessController',
           controllerAs: 'vm'
         }
       },
@@ -125,8 +125,8 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
       url: "/contact",
       views: {
         'main': {
-          templateUrl: 'other/other.view.html',
-          controller: 'OtherController',
+          templateUrl: 'contact/contact.view.html',
+          controller: 'ContactController',
           controllerAs: 'vm'
         }
       },
@@ -138,8 +138,8 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     .state('404', {
       views: {
         'main': {
-          templateUrl: 'other/other.view.html',
-          controller: 'OtherController',
+          templateUrl: 'error/error.view.html',
+          controller: 'ErrorController',
           controllerAs: 'vm'
         }
       },
