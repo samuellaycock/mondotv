@@ -25,7 +25,7 @@ var config = require('./config.json'),
     PATHS = config.PATHS;
 
 var VENDOR_SCRIPTS = [
-    'bower_components/modernizr/modernizr-custom.js',
+    'bower_components/modernizr/src/Modernizr.js',
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/jquery-bridget/jquery-bridget.js',
     'bower_components/lity/dist/lity.min.js',
