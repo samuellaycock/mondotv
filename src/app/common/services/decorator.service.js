@@ -6,7 +6,7 @@
  * @returns {{decorateObject: decorateObject}}
  * @constructor
  */
-function DecoratorService(MediaService, TagService) {
+function DecoratorService(MediaService, TagService, VideoUrlService) {
 
   function checkMedia(object) {
     return MediaService.decorateObjectWithMedia(object);
@@ -16,9 +16,14 @@ function DecoratorService(MediaService, TagService) {
     return TagService.decorateObjectWithTag(object);
   }
 
+  function checkVideoUrl(object) {
+    return VideoUrlService.decorateObjectWithVideoUrl(object);
+  }
+
   function decorateObject(object) {
     var mediaCheck = checkMedia(object),
-        tagCheck = checkTags(mediaCheck);
+        tagCheck = checkTags(mediaCheck),
+        videoUrlCheck = checkVideoUrl(tagCheck);
 
     return tagCheck;
   }

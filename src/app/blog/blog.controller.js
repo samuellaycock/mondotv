@@ -1,4 +1,4 @@
-function BlogController($anchorScroll, $stateParams, $state, PostService, MetadataService) {
+function BlogController($stateParams, $state, PostService, MetadataService) {
     var vm = this;
     var apiCallFunction;
 
@@ -25,14 +25,6 @@ function BlogController($anchorScroll, $stateParams, $state, PostService, Metada
         vm.posts = posts;
         vm.loaded = true;
     });
-
-    vm.scrollToTop = function() {
-        $anchorScroll();
-    };
-
-    vm.search = function(term) {
-        $state.go('postsBySearch', { searchTerm: term });
-    };
 }
 
 angular

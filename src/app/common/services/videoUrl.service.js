@@ -1,5 +1,5 @@
 /**
- * The VideoUrlService receives and processes the json response from WP-API and parses for video URLs.
+ * The VideoUrlService receives and processes the json response from WP-API and$
  *
  * @param $http
  * @param config
@@ -9,18 +9,25 @@
 function VideoUrlService() {
 
   function returnUrl(object) {
-    var content = object.content.rendered,
-        videoUrl = content.match("(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)" + "(([\\w\\-]+\\.){1,}?([\\w\\-.~]+\\/?)*" + "[\\p{Alnum}.,%_=?&#\\-+()\\[\\]\\*$~@!:/{};']*)");
+    var string = object.content.toString(),
+        regex = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s\"]{2,})/gi,
+        result = string.match(regex),
+        videoUrl = result;
 
+    /*if (regex.exec(content)) {
+      videoUrlArray = regex.exec(content);
+      videoUrl = videoUrlArray[0];
+
+      //return videoUrl;
+    }*/
     return videoUrl;
   }
 
   function decorateObjectWithVideoUrl(object) {
-    if (object.type === 'video') {
-      var videoUrl = returnUrl(object);
+    //if (object.type === 'video') {
+      object.videoUrl = returnUrl(object);
+    //}
 
-      object.videoUrl = videoUrl;
-    }
     return object;
   }
 

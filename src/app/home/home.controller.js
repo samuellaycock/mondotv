@@ -5,10 +5,23 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
   vm.allVideos = [];
   vm.categories = [];
   vm.brands = [];
-
   vm.videoCount = 0;
   vm.moreVideos = true;
   vm.loading = true;
+
+  vm.randomColour = function() {
+    var colourArray = [
+        'hover-orange',
+        'hover-dark-orange',
+        'hover-yellow',
+        'hover-cyan',
+        'hover-blue',
+        'hover-dark-blue'
+      ],
+      index = Math.floor(Math.random()*6);
+
+      return colourArray[index];
+  };
 
   vm.fetchMoreVideos = function() {
     vm.loading = true;
@@ -43,6 +56,10 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
   });
 
   TagService.allTagsBySearchTerm('category-').then(function(tags) {
+    tags.map(function(tag) {
+      var colour = vm.randomColour();
+      tag.colour = colour;
+    });
     vm.categories = tags;
   });
 

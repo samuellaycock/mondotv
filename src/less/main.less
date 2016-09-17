@@ -22,6 +22,7 @@ body {
 }
 
 nav {
+  position: relative;
   height: auto!important;
 }
 
@@ -108,8 +109,40 @@ nav {
   background: @colour-main-view-bg;
 }
 
-.pure-menu {
+.menu-view.sticky {
+  z-index: 999!important;
+}
+
+.menu-view > .menu-contain {
+  position: relative;
+  margin: auto;
   max-width: 1400px;
+  text-align: center;
+}
+
+.menu-view .pure-dropdown {
+  position: absolute;
+}
+
+.menu-view .pure-dropdown-left,
+.menu-view .pure-dropdown-right {
+  top: 50%;
+  .transform(~'translatey(-50%)');
+  text-align: left;
+}
+
+.menu-view .pure-dropdown-left {
+  left: 1em;
+}
+
+.menu-view .pure-dropdown-right {
+  right: 1em;
+}
+
+.pure-menu {
+  display: inline-block;
+  max-width: 1400px;
+  width: auto;
   margin: auto;
 }
 
@@ -210,7 +243,7 @@ body.projects .main-view {
 
 .footer > hr {
   position: relative;
-  margin: 5em auto 4em;
+  margin: 4em auto 4em;
   max-width: 40%;
   border: none;
 }
@@ -232,11 +265,32 @@ body.projects .main-view {
 }
 
 .footer > .footer-about > .about {
-  margin: 0 auto 2em;
-  padding: 0.5em 2em;
+  margin: 0 1em 2em;
+  padding: 1em 2em;
   max-width: 800px;
   border: 1px solid @colour-border-light-bg;
   .border-radius(0.5em);
+  @media (min-width: 800px) {
+    margin: 0 auto 2em;
+    padding: 1em 2em;
+  }
+}
+
+.footer > .footer-about > .about .col-1 {
+  @media (min-width: 64em) {
+    padding-right: 1em;
+  }
+}
+
+.footer > .footer-about > .about .col-2 {
+  @media (min-width: 64em) {
+    padding-left: 1em;
+  }
+}
+
+.footer > .footer-about > .about ol {
+  margin: 0;
+  padding: 0;
 }
 
 .footer > .footer-social {
@@ -358,16 +412,37 @@ button {
 }
 
 .pure-dropdown {
-
+  position: relative;
+  padding-bottom: 1em;
 }
 
 .dropdown-menu {
-  display: inline-block;
+  display: none;
+  position: absolute;
+  top: 1.25em;
   margin: none;
+  width: 250px;
   list-style: none;
   padding: 0.313em 0.875em;
+  background: #fff;
   border: 1px solid @colour-text-deemphasize;
+  opacity: 0;
   .border-radius(0.313em);
+  .transition(~'all 0.2s');
+}
+
+.pure-dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+  opacity: 1;
+}
+
+.pure-dropdown-left .dropdown-menu {
+  left: 0;
+}
+
+.pure-dropdown-right .dropdown-menu {
+  right: 0;
 }
 
 .pure-button {

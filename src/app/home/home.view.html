@@ -6,13 +6,13 @@
     </label>
     <label ng-repeat="tag in vm.categories">
       <input type="radio" ng-model="filters.categories" ng-model-options="{ debounce: 500 }" value="{{ ::tag.slug }}" />
-      <span class="pure-button hover-orange">{{ ::tag.name }}</span>
+      <span class="pure-button {{ ::tag.colour }}">{{ ::tag.name }}</span>
     </label>
   </div>
   <div class="pure-u-1">
     <div class="pure-g video-list ng-cloak">
-      <div ng-repeat="video in vm.allVideos | filter:filters.categories" class="pure-u-2 pure-u-sm-1-3 pure-u-lg-1-4 pure-u-xl-1-5 video-item" ng-class="video.tags">
-        <a href="https://www.youtube.com/watch?v=5lGoQhFb4NM" data-lity>
+      <div ng-repeat="video in vm.allVideos | filter:filters.categories" class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-4 pure-u-xl-1-5 video-item" ng-class="video.tags">
+        <a href="https://{{ ::video.videoUrl }}" data-lity>
           <img class="pure-img ng-cloak" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
         </a>
       </div>
@@ -34,8 +34,4 @@
       </div>
     </div>
   </slick>
-</section>
-
-<section>
-
 </section>
