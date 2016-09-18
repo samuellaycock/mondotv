@@ -26,9 +26,8 @@ var config = require('./config.json'),
 
 var VENDOR_SCRIPTS = [
     'bower_components/jquery/dist/jquery.min.js',
-    'bower_components/jquery-bridget/jquery-bridget.js',
+    
     'bower_components/lity/dist/lity.min.js',
-
     'bower_components/slick-carousel/slick/slick.js',
 
     'bower_components/angular/angular.js',

@@ -1,4 +1,4 @@
-function OtherController(PostService, MetadataService) {
+function ProcessController(PostService, MetadataService) {
   var vm = this;
 
   vm.posts = [];
@@ -15,4 +15,4 @@ function OtherController(PostService, MetadataService) {
 
 angular
   .module('app')
-  .controller('ProcessController', processController);
+  .controller('ProcessController', ProcessController);
