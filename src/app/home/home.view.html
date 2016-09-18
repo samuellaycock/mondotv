@@ -13,11 +13,11 @@
   </div>
   <div class="pure-u-1">
     <ul id="isotopeContainer" class="video-list" ng-cloak="" isotope-container="">
-      <li class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-4 pure-u-xl-1-5 video-item" isotope-item="" ng-repeat="video in vm.allVideos track by video.$id">
-        <a href="https://{{ ::video.videoUrl }}" data-lity>
+      <li class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-4 pure-u-xl-1-5 video-item" isotope-item="" ng-repeat="video in vm.allVideos">
+        <a href="{{ ::video.videoUrl }}" data-lity>
           <img class="pure-img" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
         </a>
-        <h3>{{ ::video.title.rendered }}</h3>
+        <h3>{{ ::video.tags | filter:brand }}</h3>
         <ul>
           <li ng-repeat="tag in video.tags"><span class="{{ tag }}"></span></li>
         </ul>

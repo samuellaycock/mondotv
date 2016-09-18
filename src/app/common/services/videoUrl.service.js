@@ -12,7 +12,7 @@ function VideoUrlService() {
     var string = object.content.toString(),
         regex = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s\"]{2,})/gi,
         result = string.match(regex),
-        videoUrl = result;
+        videoUrl = result[0];
 
     /*if (regex.exec(content)) {
       videoUrlArray = regex.exec(content);
