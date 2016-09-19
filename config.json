@@ -3,10 +3,10 @@
     "build": {
       "siteUrl": "http://mondotv.tk/mondotv/build",
       "basePath": "/mondotv/build/",
-      "apiUrl": "../../wp-json/wp/v2/"
+      "apiUrl": "../../wordpress/wp-json/wp/v2/"
     },
     "dist": {
-      "siteUrl": "http://mondotv.tk/",
+      "siteUrl": "http://mondotv.tk/mondotv/dist",
       "basePath": "/mondotv/dist/",
       "apiUrl": "../../wordpress/wp-json/wp/v2/"
     }

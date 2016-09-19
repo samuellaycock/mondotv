@@ -1,26 +1,24 @@
 <!-- Main Content -->
 <section class="pure-g page-content" ng-controller="HomeController as vm">
   <!-- Filter List -->
-  <div class="pure-u-1 filter-list ng-cloak" ng-init="filters.categories=''">
-    <label>
-      <input type="radio" ng-model="filters.categories" ng-model-options="{ debounce: 500 }" value="" />
-      <span class="pure-button hover-brand">All</span>
-    </label>
-    <label ng-repeat="tag in vm.categories">
-      <input type="radio" ng-model="filters.categories" ng-model-options="{ debounce: 500 }" value="{{ ::tag.slug }}" />
-      <span class="pure-button {{ ::tag.colour }}">{{ ::tag.name }}</span>
-    </label>
+  <div class="pure-u-1 filter-list ng-cloak" opt-kind="" ok-key="filter">
+    <button class="pure-button hover-brand active" ok-sel="*">All</button>
+    <button ng-repeat="tag in vm.categories" class="pure-button {{ ::tag.colour }}" ok-sel=".{{ ::tag.slug }}">{{ ::tag.name }}</button>
   </div>
   <div class="pure-u-1">
-    <ul id="isotopeContainer" class="video-list" ng-cloak="" isotope-container="">
-      <li class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-4 pure-u-xl-1-5 video-item" isotope-item="" ng-repeat="video in vm.allVideos">
+    <ul id="isotopeContainer" class="video-list" isotope-container ng-cloak>
+      <li class="video-item" ng-repeat="video in vm.allVideos" ng-class="video.tags" isotope-item ng-cloak>
         <a href="{{ ::video.videoUrl }}" data-lity>
-          <img class="pure-img" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
+          <figure>
+            <img class="pure-img" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" imageLoaded="vm.$emit('iso-method', {name:null, params:null})" alt="{{ ::video.title.rendered }}" />
+            <figcaption class="video-caption">
+              <h3>{{ ::video.title.rendered }}</h3>
+            </figcaption>
+          </figure>
         </a>
-        <h3>{{ ::video.tags | filter:brand }}</h3>
-        <ul>
+        <!--<ul>
           <li ng-repeat="tag in video.tags"><span class="{{ tag }}"></span></li>
-        </ul>
+        </ul>-->
       </li>
     </ul>
     <!--

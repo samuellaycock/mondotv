@@ -90,12 +90,12 @@
         <a ui-sref="home">
           <img src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/mondotv-logo-web.jpg" alt="MondoTV"/>
         </a>
-        <h4 class="strapline">We make web based branded video content. Tech focused, Doctor approved. Check it out.</h4>
+        <h4 class="strapline" ng-cloak>{{ $state.current.data.strapline }}</h4>
       </div>
     </section>
 
     <main class="main-view">
-      <div class="pure-g page-content ng-cloak">
+      <div class="pure-g page-content" ng-cloak>
         <div class="pure-u-1" ng-if="vm.bulletins.length">
           <div class="bulletin" ng-repeat="bulletin in vm.bulletins">
             <h1>{{ ::bulletin.title }}</h1>
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div class="content ng-cloak">
+      <div class="content" ng-cloak>
         <div ui-view="main">
           <div class="main-loading-container" ng-if="false">
             <img class="main-loading-icon" src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/loading.gif" alt="MondoTV.co is loading..." />
@@ -112,7 +112,7 @@
       </div>
     </main>
 
-    <footer class="footer ng-cloak">
+    <footer class="footer" ng-cloak>
       <hr />
       <section class="footer-about">
         <div class="about">
@@ -122,11 +122,11 @@
       </section>
       <section class="pure-g footer-social">
         <ul>
-          <li class="pure-button"><span class="icon-vimeo"></span></li>
-          <li class="pure-button"><span class="icon-play"></span></li>
-          <li class="pure-button"><span class="icon-twitter"></span></li>
-          <li class="pure-button"><span class="icon-facebook"></span></li>
-          <li class="pure-button"><span class="icon-linkedin"></span></li>
+          <li class="pure-button vimeo"><a href="http://vimeo.com/mondotvuk" class="icon-vimeo"></a></li>
+          <li class="pure-button youtube"><a href="http://youtube.com/mondotvuk" class="icon-play"></a></li>
+          <li class="pure-button twitter"><a href="http://twitter.com/mondotvuk" class="icon-twitter"></a></li>
+          <li class="pure-button facebook"><a href="http://facebook.com/mondotvuk" class="icon-facebook"></a></li>
+          <li class="pure-button linkedin"><a href="http://linkedin.com/mondotvuk"n class="icon-linkedin"></a></li>
         </ul>
       </section>
       <section class="footer-mondo">

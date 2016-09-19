@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky']);
+angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky', 'iso.directives']);
 
 /**
  *
@@ -19,7 +19,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'tv',
+        headline: 'tv',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -33,7 +33,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'process',
+        headline: 'process',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -47,7 +47,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'projects',
+        headline: 'projects',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -61,7 +61,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'clients',
+        headline: 'clients',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -75,7 +75,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'blog',
+        headline: 'blog',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -89,7 +89,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'blog',
+        headline: 'blog',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -103,7 +103,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'stuff',
+        headline: 'stuff',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -117,7 +117,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'terms',
+        headline: 'terms',
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
@@ -131,8 +131,8 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: 'hookup',
-        strapline: 'Curious Cats.<br/\><br\/>According to the internet \“experts\”, more than 3 boxes on any e-form will cause 80\% of you to opt out. Ours has more than that because we\’re Curious Cats. Let\’S show those \“experts\” who\’s boss!'
+        headline: 'hookup',
+        strapline: 'Curious Cats.<br\/><br\/>According to the internet \“experts\”, more than 3 boxes on any e-form will cause 80\% of you to opt out. Ours has more than that because we\’re Curious Cats. Let\’S show those \“experts\” who\’s boss!'
       }
     })
     .state('404', {
@@ -144,7 +144,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       },
       data: {
-        state: '404',
+        headline: '404',
         strapline: 'Oops! Looks like you\'ve taken a wrong turn. <a href="/">Click here</a> to get back on track.'
       }
     });

@@ -171,3 +171,15 @@
 	-ms-transform-origin:     @x @y;
 	-o-transform-origin:      @x @y;
 }
+.user-select (@value: none) {
+	-webkit-user-select: @value;
+	-moz-user-select: @value;
+	-ms-user-select: @value;
+	user-select: @value;
+	-webkit-touch-callout: @value;
+	-khtml-user-select: @value;
+}
+.brightness-filter(@value){
+	-webkit-filter: brightness(@value);
+	filter: brightness(@value);
+}

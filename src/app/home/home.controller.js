@@ -25,13 +25,13 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
 
   vm.fetchMoreVideos = function() {
     vm.loading = true;
-    vm.videoCount += 10;
+    vm.videoCount += 12;
 
-    if (vm.videoCount === 40) {
+    if (vm.videoCount > 40) {
       vm.moreVideos = false;
     }
 
-    PostService.allPostsByCategory('video', 10, 'asc', vm.videoCount).then(function(posts) {
+    PostService.allPostsByCategory('video', 12, 'asc', vm.videoCount).then(function(posts) {
       posts.map(function(post) {
         DecoratorService.decorateObject(post);
       });
@@ -47,7 +47,7 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
     vm.allFeatured = posts;
   });
 
-  PostService.allPostsByCategory('video', 10, 'asc', vm.videoCount).then(function(posts) {
+  PostService.allPostsByCategory('video', 12, 'asc', vm.videoCount).then(function(posts) {
     posts.map(function(post) {
       DecoratorService.decorateObject(post);
     });

@@ -5,6 +5,10 @@
 @import "wp";
 @import "fonts";
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 *,
 *:before,
 *:after {
@@ -61,6 +65,8 @@ nav {
 }
 
 .header-img > .strapline {
+  display: inline-block;
+  max-width: 500px;
   margin-top: 3em;
   padding: 0 1em;
   text-transform: uppercase;
@@ -306,7 +312,7 @@ body.projects .main-view {
 .footer > .footer-social .pure-button {
   display: inline-block;
   margin: 0 0.75em;
-  padding: 0.375em 0.5em;
+  padding: 0.25em 0.5em;
   font-size: 0.875;
   height: 1.875em;
   width: 1.875em;
@@ -315,7 +321,7 @@ body.projects .main-view {
 
 .footer > .footer-social .pure-button span {
   line-height: 1.25em;
-  margin-left: -0.25em;
+  margin-left: -0.3em;
   vertical-align: middle;
 }
 
@@ -537,7 +543,7 @@ label[for="pure-file"] {
 }
 
 .hover-brand:hover,
-input:checked + .hover-brand {
+.hover-brand.active {
   color: @colour-a-link !important;
   border-color: @colour-a-link !important;
 }
@@ -548,7 +554,7 @@ input:checked + .hover-brand {
 }
 
 .hover-orange:hover,
-input:checked + .hover-orange {
+.hover-orange.active {
   color: @orange !important;
   border-color: @orange !important;
 }
@@ -559,7 +565,7 @@ input:checked + .hover-orange {
 }
 
 .hover-dark-orange:hover,
-input:checked + .hover-dark-orange {
+.hover-dark-orange.active {
   color: @dark-orange !important;
   border-color: @dark-orange !important;
 }
@@ -570,7 +576,7 @@ input:checked + .hover-dark-orange {
 }
 
 .hover-yellow:hover,
-input:checked + .hover-yellow {
+.hover-yellow.active {
   color: @yellow !important;
   border-color: @yellow !important;
 }
@@ -581,7 +587,7 @@ input:checked + .hover-yellow {
 }
 
 .hover-cyan:hover,
-input:checked + .hover-cyan {
+.hover-cyan.active {
   color: @cyan !important;
   border-color: @cyan !important;
 }
@@ -592,7 +598,7 @@ input:checked + .hover-cyan {
 }
 
 .hover-blue:hover,
-input:checked + .hover-blue {
+.hover-blue.active {
   color: @blue !important;
   border-color: @blue !important;
 }
@@ -603,9 +609,34 @@ input:checked + .hover-blue {
 }
 
 .hover-dark-blue:hover,
-input:checked + .hover-dark-blue {
+.hover-dark-blue.active {
   color: @dark-blue !important;
   border-color: @dark-blue !important;
+}
+
+.vimeo:hover {
+  color: #1ab7ea;
+  border-color: #1ab7ea;
+}
+
+.youtube:hover {
+  color: #cd201f;
+  border-color: #cd201f;
+}
+
+.twitter:hover {
+  color: #1da1f2;
+  border-color: #1da1f2;
+}
+
+.facebook:hover {
+  color: #3b5998;
+  border-color: #3b5998;
+}
+
+.linkedin:hover {
+  color: #0077b5;
+  border-color: #0077b5;
 }
 
 .ng-enter,
