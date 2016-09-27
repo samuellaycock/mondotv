@@ -1,7 +1,9 @@
 @import "vars";
 @import "mixins";
+@import "brands";
 @import "home";
 @import "blog";
+@import "projects";
 @import "wp";
 @import "fonts";
 
@@ -28,6 +30,10 @@ body {
 nav {
   position: relative;
   height: auto!important;
+  @media (max-width: 35.5em) {
+    border-bottom: 1px solid @colour-border-light-bg;
+    overflow-x: scroll;
+  }
 }
 
 .header {
@@ -55,21 +61,47 @@ nav {
 }
 
 .header-img {
-  padding: 5em 0 3em;
   text-align:center;
 }
 
-.header-img > img {
-  display: inline-block;
-  padding: 1em 0 0.75em;
+.header-img .logo-tv,
+.header-img h1 {
+  display: inline-block!important;
 }
 
-.header-img > .strapline {
-  display: inline-block;
-  max-width: 500px;
-  margin-top: 3em;
+.header-img h1 {
+  margin: 0;
+  color: @colour-text-content!important;
+  text-transform: lowercase;
+  font-size: 4em;
+  vertical-align: baseline;
+}
+
+.logo-tv {
+  height: 225px;
+  width: 150px;
+  background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/logo-still.jpg') no-repeat 10px -5px;
+  background-size: cover;
+  vertical-align: bottom;
+  @media (max-width: 35.5em) {
+    background-position: center -5px;
+  }
+}
+
+.header .strapline {
+  margin: 1em auto 2em;
   padding: 0 1em;
+  text-align: center;
   text-transform: uppercase;
+}
+
+.strapline h4 {
+  display: inline-block;
+  max-width: 440px;
+}
+
+.header-link:hover .logo-tv {
+  background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/logo-loop.gif') no-repeat 10px -5px;
 }
 
 .header-social {
@@ -169,7 +201,7 @@ nav {
   display: inline-block;
   width: 0;
   height: 40px;
-  background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/menu-logo-animated.gif') no-repeat left center;
+  background: none;
   background-size: 100%;
   opacity: 0;
   .transition(~'all 0.3s ease-out');
@@ -177,6 +209,8 @@ nav {
 
 nav.sticky .pure-menu-item.menu-logo {
   width: 120px;
+  background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/menu-logo-animated.gif') no-repeat left center;
+  background-size: cover;
   opacity: 1;
 }
 
@@ -216,10 +250,16 @@ nav.sticky .pure-menu-item.menu-logo {
 
 body.process .main-view,
 body.contact .main-view,
+body.project .main-view,
+body.post .main-view {
+  margin: auto;
+  max-width: 800px;
+}
+
 body.clients .main-view,
 body.projects .main-view {
   margin: auto;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 .main-view {
@@ -258,7 +298,7 @@ body.projects .main-view {
 .footer > hr:after {
   position: absolute;
   content: '';
-  height: 2px;
+  height: 4px;
   top: 0;
   left: 0;
   right: 0;
@@ -274,23 +314,10 @@ body.projects .main-view {
   margin: 0 1em 2em;
   padding: 1em 2em;
   max-width: 800px;
-  border: 1px solid @colour-border-light-bg;
   .border-radius(0.5em);
   @media (min-width: 800px) {
     margin: 0 auto 2em;
     padding: 1em 2em;
-  }
-}
-
-.footer > .footer-about > .about .col-1 {
-  @media (min-width: 64em) {
-    padding-right: 1em;
-  }
-}
-
-.footer > .footer-about > .about .col-2 {
-  @media (min-width: 64em) {
-    padding-left: 1em;
   }
 }
 
@@ -312,17 +339,18 @@ body.projects .main-view {
 .footer > .footer-social .pure-button {
   display: inline-block;
   margin: 0 0.75em;
-  padding: 0.25em 0.5em;
+  padding: 0.313em 0.5em;
   font-size: 0.875;
   height: 1.875em;
   width: 1.875em;
   border-radius: 50%;
 }
 
-.footer > .footer-social .pure-button span {
+.footer > .footer-social .pure-button a {
   line-height: 1.25em;
-  margin-left: -0.3em;
+  margin-left: -0.313em;
   vertical-align: middle;
+  color: @colour-text-deemphasize;
 }
 
 .footer-mondo {
@@ -368,19 +396,19 @@ h4, h5, h6, p, ul, ol, li {
 
 h1 {
   @media (min-width: 48em) {
-    font-size: 3em;
+    font-size: 2.8em;
   }
 }
 
 h2 {
   @media (min-width: 48em) {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 }
 
 h3 {
   @media (min-width: 48em) {
-    font-size: 1.6em;
+    font-size: 1.4em;
   }
 }
 
@@ -453,13 +481,14 @@ button {
 .pure-button {
   padding: 0.313em 0.875em;
   background: transparent;
-  color: @colour-text-deemphasize;
+  color: @colour-text-deemphasize!important;
   border: 1px solid;
   border-color: @colour-text-deemphasize;
   .border-radius(0.313em);
 }
 
 .pure-button.pure-button-primary {
+  color: #fff!important;
   background: @colour-a-link;
   border-color: @colour-a-link;
 }
@@ -468,12 +497,12 @@ button {
 .pure-button:active,
 .pure-button:focus {
   background: transparent;
-  color: @colour-a-link;
-  border-color: @colour-a-link;
+  color: @colour-a-link!important;
+  border-color: @colour-a-link!important;
 }
 
 .wpcf7-form {
-  margin: 1em auto;
+  margin:3em auto 1em;
   padding: 2em 1em;
   max-width: 575px;
   border: 1px solid @colour-border-light-bg;
@@ -614,29 +643,34 @@ label[for="pure-file"] {
   border-color: @dark-blue !important;
 }
 
-.vimeo:hover {
-  color: #1ab7ea;
-  border-color: #1ab7ea;
+.vimeo:hover,
+.vimeo:hover > * {
+  color: #1ab7ea!important;
+  border-color: #1ab7ea!important;
 }
 
-.youtube:hover {
-  color: #cd201f;
-  border-color: #cd201f;
+.youtube:hover,
+.youtube:hover > * {
+  color: #cd201f!important;
+  border-color: #cd201f!important;
 }
 
-.twitter:hover {
-  color: #1da1f2;
-  border-color: #1da1f2;
+.twitter:hover,
+.twitter:hover > * {
+  color: #1da1f2!important;
+  border-color: #1da1f2!important;
 }
 
-.facebook:hover {
-  color: #3b5998;
-  border-color: #3b5998;
+.facebook:hover,
+.facebook:hover > * {
+  color: #3b5998!important;
+  border-color: #3b5998!important;
 }
 
-.linkedin:hover {
-  color: #0077b5;
-  border-color: #0077b5;
+.linkedin:hover,
+.linkedin:hover > * {
+  color: #0077b5!important;
+  border-color: #0077b5!important;
 }
 
 .ng-enter,

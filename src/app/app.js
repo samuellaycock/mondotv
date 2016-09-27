@@ -51,12 +51,40 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
       }
     })
+    .state('project', {
+      url: "/project/:id/:title",
+      views: {
+        'main': {
+          templateUrl: 'blog/post.view.html',
+          controller: 'PostController',
+          controllerAs: 'vm'
+        }
+      },
+      data: {
+        headline: 'projects',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
+      }
+    })
     .state('clients', {
       url: "/clients",
       views: {
         'main': {
           templateUrl: 'clients/clients.view.html',
           controller: 'ClientController',
+          controllerAs: 'vm'
+        }
+      },
+      data: {
+        headline: 'clients',
+        strapline: 'We make web based branded video content. Tech focused, doctor approved. Check it out.'
+      }
+    })
+    .state('client', {
+      url: "/client/:name",
+      views: {
+        'main': {
+          templateUrl: 'clients/singleClient.view.html',
+          controller: 'SingleClientController',
           controllerAs: 'vm'
         }
       },
@@ -181,7 +209,7 @@ var config = {
   API_URL: '%%API_URL%%'
 };
 
-function AppController($rootScope, $window, $location, $timeout, $stateParams, MetadataService, PostService) {
+function AppController($rootScope, $window, $location, $timeout, $state, $stateParams, MetadataService, PostService) {
   var vm = this;
 
   vm.bulletins = [];

@@ -1,8 +1,9 @@
 <div class="pure-g page-content">
-  <section class="projects-list">
-    <div class="pure-u-1 pure-u-lg-1-2 pure-u-xl-1-3" ng-repeat="project in vm.projects">
-      <a ui-sref="post({ id: project.ID, title: project.slug })">
-        <h4>{{ project.title.rendered }}</h4>
+  <section class="project-list">
+    <div class="pure-u-1 pure-u-lg-1-2 pure-u-xl-1-3 project-item" ng-repeat="project in vm.projects">
+      <a ui-sref="project({ id: project.id, title: project.slug })" ng-class="project.tags" class="project-link">
+        <h3>{{ project.title.rendered }}</h3>
+        <span class="brand-logo" style="height:2em;"></span>
       </a>
     </div>
   </section>

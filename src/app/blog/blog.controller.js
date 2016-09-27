@@ -1,29 +1,20 @@
-function BlogController($stateParams, $state, PostService, MetadataService) {
+function BlogController($stateParams, $state, PostService, DecoratorService, MetadataService) {
     var vm = this;
-    var apiCallFunction;
 
-    vm.posts = [];
-    vm.loaded = false;
-    vm.subtitle = '';
+    vm.blogPosts = [];
+    vm.loading = false;
+
+    PostService.allPostsByCategory('blog', 10, 'asc', 0).then(function(posts) {
+      posts.map(function(post) {
+        DecoratorService.decorateObject(post);
+      });
+      vm.loading = false;
+      vm.allVideos = posts;
+    });
 
     MetadataService.setMetadata({
         title: 'Blog',
-        description: 'A collection of articles on some topics.'
-    });
-
-    if (typeof $stateParams.tag !== 'undefined') {
-        apiCallFunction = PostService.allPostsByCategoryAndTag('blog', $stateParams.tag, 10, 'ASC');
-        vm.subtitle = 'tagged with "' + $stateParams.tag + '"';
-    } else if (typeof $stateParams.searchTerm !== 'undefined') {
-        apiCallFunction = PostService.allPostsBySearchTerm($stateParams.searchTerm);
-        vm.subtitle = 'searching "' + $stateParams.searchTerm + '"';
-    } else {
-        apiCallFunction = PostService.allPostsByCategory('blog', 10, 'asc');
-    }
-
-    apiCallFunction.then(function(posts) {
-        vm.posts = posts;
-        vm.loaded = true;
+        description: 'Your source for all news MondoTV.'
     });
 }
 

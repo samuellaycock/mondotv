@@ -149,8 +149,13 @@ ul.tags {
 .post-body {
   transition: opacity 0.2s 1s;
   margin: 0 auto;
+  text-align: center;
+  width: 100%;
   &.ng-hide {
     opacity:0;
+  }
+  h1 {
+    text-align: center;
   }
   h2, h3 {
     margin-top: 50px;
@@ -176,5 +181,10 @@ ul.tags {
     @media (max-width: 48em) {
       margin-left: 10px;
     }
+  }
+
+  iframe {
+    display: inline-block;
+    width: 100%;
   }
 }

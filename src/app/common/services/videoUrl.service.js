@@ -14,19 +14,11 @@ function VideoUrlService() {
         result = string.match(regex),
         videoUrl = result[0];
 
-    /*if (regex.exec(content)) {
-      videoUrlArray = regex.exec(content);
-      videoUrl = videoUrlArray[0];
-
-      //return videoUrl;
-    }*/
     return videoUrl;
   }
 
   function decorateObjectWithVideoUrl(object) {
-    //if (object.type === 'video') {
-      object.videoUrl = returnUrl(object);
-    //}
+    object.videoUrl = returnUrl(object);
 
     return object;
   }

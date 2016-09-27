@@ -1,9 +1,12 @@
-function ProjectController($stateParams, PostService, MetadataService) {
+function ProjectController($stateParams, PostService, TagService, DecoratorService, MetadataService) {
   var vm = this;
 
   vm.projects = [];
 
   PostService.allPostsByCategory('video', 50, 'asc', 0).then(function(posts) {
+    posts.map(function(post) {
+      DecoratorService.decorateObject(post);
+    });
     vm.projects = posts;
 
     MetadataService.setMetadata({

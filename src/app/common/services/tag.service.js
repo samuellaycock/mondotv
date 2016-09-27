@@ -15,7 +15,7 @@ function TagService(DataService) {
 
     // Search and return all tags by search term
     function allTagsBySearchTerm(searchTerm) {
-      return DataService.getData('tags?search=' + searchTerm + '&filter[posts_per_page]=99');
+      return DataService.getData('tags?search=' + searchTerm + '&per_page=99');
     }
 
     // Search and return single tag object by ID
