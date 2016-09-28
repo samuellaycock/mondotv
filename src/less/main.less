@@ -149,6 +149,7 @@ nav {
 
 .menu-view.sticky {
   z-index: 999!important;
+  .box-shadow(~'0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)');
 }
 
 .menu-view > .menu-contain {
@@ -327,6 +328,7 @@ body.projects .main-view {
 }
 
 .footer > .footer-social {
+  margin: 3em auto 1em;
   text-align: center;
 }
 
@@ -363,6 +365,7 @@ body.projects .main-view {
 }
 
 .footer-terms {
+  padding: 0;
   font-size: 0.75em;
   list-style: none;
 }
@@ -505,8 +508,23 @@ button {
   margin:3em auto 1em;
   padding: 2em 1em;
   max-width: 575px;
-  border: 1px solid @colour-border-light-bg;
-  .border-radius(0.5em);
+}
+
+.wpcf7-form fieldset {
+  min-width: 0;
+}
+
+.wpcf7-form input {
+  font-size: 1rem;
+  max-width: 100%;
+}
+
+.wpcf7-form .pure-control-group label {
+  width: 9em;
+}
+
+.wpcf7-form .pure-controls {
+    margin-left: 10em;
 }
 
 .no-bullet {
@@ -526,18 +544,6 @@ input[type=radio] {
 	visibility: hidden;
   height: 0;
   width: 0;
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  height: 30px;
-}
-
-select:after {
-  content: '\6d';
-  font-family: 'icon-font';
 }
 
 .page-header {
@@ -575,72 +581,6 @@ label[for="pure-file"] {
 .hover-brand.active {
   color: @colour-a-link !important;
   border-color: @colour-a-link !important;
-}
-
-.orange {
-  color: @orange !important;
-  border-color: @orange !important;
-}
-
-.hover-orange:hover,
-.hover-orange.active {
-  color: @orange !important;
-  border-color: @orange !important;
-}
-
-.dark-orange {
-  color: @dark-orange !important;
-  border-color: @dark-orange !important;
-}
-
-.hover-dark-orange:hover,
-.hover-dark-orange.active {
-  color: @dark-orange !important;
-  border-color: @dark-orange !important;
-}
-
-.yellow {
-  color: @yellow !important;
-  border-color: @yellow !important;
-}
-
-.hover-yellow:hover,
-.hover-yellow.active {
-  color: @yellow !important;
-  border-color: @yellow !important;
-}
-
-.cyan {
-  color: @cyan !important;
-  border-color: @cyan !important;
-}
-
-.hover-cyan:hover,
-.hover-cyan.active {
-  color: @cyan !important;
-  border-color: @cyan !important;
-}
-
-.blue {
-  color: @blue !important;
-  border-color: @blue !important;
-}
-
-.hover-blue:hover,
-.hover-blue.active {
-  color: @blue !important;
-  border-color: @blue !important;
-}
-
-.dark-blue {
-  color: @dark-blue !important;
-  border-color: @dark-blue !important;
-}
-
-.hover-dark-blue:hover,
-.hover-dark-blue.active {
-  color: @dark-blue !important;
-  border-color: @dark-blue !important;
 }
 
 .vimeo:hover,

@@ -3,29 +3,29 @@
   <!-- Filter List -->
   <div class="pure-u-1 filter-list ng-cloak" opt-kind="" ok-key="filter">
     <button class="pure-button hover-brand active" ok-sel="*">All</button>
-    <button ng-repeat="tag in vm.categories" class="pure-button {{ ::tag.colour }}" ok-sel=".{{ ::tag.slug }}">{{ ::tag.name }}</button>
+    <button ng-repeat="tag in vm.categories" class="pure-button filter-button {{ ::tag.slug }}" ok-sel=".{{ ::tag.slug }}">{{ ::tag.name }}</button>
   </div>
   <div class="pure-u-1">
     <ul id="isotopeContainer" class="video-list" isotope-container ng-cloak>
-      <li class="video-item" ng-repeat="video in vm.allVideos" ng-class="video.tags" isotope-item ng-cloak>
+      <li class="video-item" ng-repeat="video in vm.allVideos | limitTo:vm.videoCount" ng-class="video.tags" isotope-item ng-cloak>
         <a href="{{ ::video.videoUrl }}" data-lity>
           <figure>
             <img class="pure-img" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
             <figcaption class="video-caption">
               <h3>{{ ::video.title.rendered }}</h3>
             </figcaption>
+            <ul class="type-list">
+              <li class="type-item" ng-repeat="tag in video.tags"><div class="icon {{ ::tag }}"></div></li>
+            </ul>
           </figure>
           <span class="brand-logo"></span>
         </a>
-        <ul class="type-list">
-          <li class="type-item" ng-repeat="tag in video.tags"><div class="icon {{ ::tag }}"></div></li>
-        </ul>
       </li>
     </ul>
   </div>
+  <img class="loading-icon" src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/loading.gif" alt="Content loading" ng-if="vm.loading" />
   <div class="pure-u-1 button-section">
-    <img class="loading-icon" src="https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/loading.gif" alt="Content loading" ng-if="vm.loading" /><br />
-    <a ng-click="vm.fetchMoreVideos()" class="pure-button pure-button-primary" ng-if="vm.moreVideos">More Videos <span class="icon-plus"></span></a>
+    <a ng-click="vm.fetchMoreVideos()" class="pure-button pure-button-primary" ng-if="vm.moreVideos">More Videos</span></a>
   </div>
 </section>
 

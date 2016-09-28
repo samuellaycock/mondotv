@@ -5,39 +5,16 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
   vm.allVideos = [];
   vm.categories = [];
   vm.brands = [];
-  vm.videoCount = 0;
+  vm.videoCount = 12;
   vm.moreVideos = true;
   vm.loading = true;
 
-  vm.randomColour = function() {
-    var colourArray = [
-        'hover-orange',
-        'hover-dark-orange',
-        'hover-yellow',
-        'hover-cyan',
-        'hover-blue',
-        'hover-dark-blue'
-      ],
-      index = Math.floor(Math.random()*6);
-
-      return colourArray[index];
-  };
-
   vm.fetchMoreVideos = function() {
-    vm.loading = true;
     vm.videoCount += 12;
 
     if (vm.videoCount > 40) {
       vm.moreVideos = false;
     }
-
-    PostService.allPostsByCategory('video', 12, 'asc', vm.videoCount).then(function(posts) {
-      posts.map(function(post) {
-        DecoratorService.decorateObject(post);
-      });
-      vm.loading = false;
-      vm.allVideos.push.apply(vm.allVideos, posts);
-    });
   };
 
   PostService.allFeaturedPosts(5, 'asc', 1).then(function(posts) {
@@ -47,7 +24,7 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
     vm.allFeatured = posts;
   });
 
-  PostService.allPostsByCategory('video', 12, 'asc', vm.videoCount).then(function(posts) {
+  PostService.allPostsByCategory('video', 99, 'asc', 0).then(function(posts) {
     posts.map(function(post) {
       DecoratorService.decorateObject(post);
     });
@@ -56,10 +33,6 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
   });
 
   TagService.allTagsBySearchTerm('category-').then(function(tags) {
-    tags.map(function(tag) {
-      var colour = vm.randomColour();
-      tag.colour = colour;
-    });
     vm.categories = tags;
   });
 

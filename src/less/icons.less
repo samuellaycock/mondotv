@@ -13,7 +13,7 @@
 }
 
 [data-icon]:before,
-span.icon:before {
+.icon:before {
   font-family: "icon-font" !important;
   content: attr(data-icon);
   font-style: normal !important;
@@ -37,6 +37,21 @@ span.icon:before {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon {
+  margin-bottom: 0.25em;
+}
+
+.icon:before {
+  padding: 0.286em;
+  border-radius: 50%;
+  font-size: 0.875em;
+}
+
+.icon[class^="brand-"],
+.icon[class*=" brand-"] {
+  display: none;
 }
 
 .icon-location:before {
@@ -142,4 +157,52 @@ span.icon:before {
 .icon-magic:before,
 .icon.category-whoop:before {
   content: "\45";
+}
+
+.icon.category-animation:before {
+  background-color: @red;
+}
+
+.icon.category-ben:before {
+  background-color: @purple;
+}
+
+.icon.category-crowdfunding:before {
+  background-color: @grey-blue;
+}
+
+.icon.category-animation:before {
+  background-color: @red;
+}
+
+.icon.category-event:before {
+  background-color: @orange;
+}
+
+.icon.category-explainer:before {
+  background-color: @blue;
+}
+
+.icon.category-fashion:before {
+  background-color: @yellow;
+}
+
+.icon.category-funny:before {
+  background-color: @green;
+}
+
+.icon.category-health:before {
+  background-color: @dark-orange;
+}
+
+.icon.category-inspirational:before {
+  background-color: @cyan;
+}
+
+.icon.category-promo:before {
+  background-color: @dark-blue;
+}
+
+.icon.category-whoop:before {
+  background-color: @pink;
 }

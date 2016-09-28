@@ -13,6 +13,72 @@
   border-color: transparent;
 }
 
+.filter-button.category-animation:hover,
+.filter-button.category-animation.active {
+  color: @red !important;
+  border-color: @red !important;
+}
+
+.filter-button.category-ben:hover,
+.filter-button.category-ben.active {
+  color: @purple !important;
+  border-color: @purple !important;
+}
+
+.filter-button.category-crowdfunding:hover,
+.filter-button.category-crowdfunding.active {
+  color: @grey-blue !important;
+  border-color: @grey-blue !important;
+}
+
+.filter-button.category-event:hover,
+.filter-button.category-event.active {
+  color: @orange !important;
+  border-color: @orange !important;
+}
+
+.filter-button.category-explainer:hover,
+.filter-button.category-explainer.active {
+  color: @blue !important;
+  border-color: @blue !important;
+}
+
+.filter-button.category-fashion:hover,
+.filter-button.category-fashion.active {
+  color: @yellow !important;
+  border-color: @yellow !important;
+}
+
+.filter-button.category-funny:hover,
+.filter-button.category-funny.active {
+  color: @green !important;
+  border-color: @green !important;
+}
+
+.filter-button.category-health:hover,
+.filter-button.category-health.active {
+  color: @dark-orange !important;
+  border-color: @dark-orange !important;
+}
+
+.filter-button.category-inspirational:hover,
+.filter-button.category-inspirational.active {
+  color: @cyan !important;
+  border-color: @cyan !important;
+}
+
+.filter-button.category-promo:hover,
+.filter-button.category-promo.active {
+  color: @dark-blue !important;
+  border-color: @dark-blue !important;
+}
+
+.filter-button.category-whoop:hover,
+.filter-button.category-whoop.active {
+  color: @pink !important;
+  border-color: @pink !important;
+}
+
 .video-list,
 .video-list > .video-item {
   margin: 0;
@@ -27,6 +93,7 @@
   padding: 1.5em 0 3em;
   text-align: center;
   .user-select(none);
+  .transition(~'all 0.3s');
   @media (min-width: 35.5em) {
     width: 100%;
   }
@@ -61,10 +128,12 @@
   }
 }
 
-.video-list >.video-item img {
+.video-list >.video-item figure {
+  position: relative;
   display: inline-block;
+  margin: 0;
   width: 100%;
-  .border-radius(0.313em);
+  overflow: hidden;
   .transition(~'all 0.3s');
   @media (min-width: 35.5em) {
     width: 90%;
@@ -77,9 +146,8 @@
   }
 }
 
-.video-item figure {
-  position: relative;
-  margin: 0;
+.video-item img {
+  .border-radius(0.313em);
 }
 
 .video-item .video-caption {
@@ -101,7 +169,6 @@
   max-width: 75%;
   color: #fff!important;
   text-transform: uppercase;
-  .border-radius(0.188em);
 }
 
 .video-item:hover img {
@@ -112,11 +179,25 @@
   opacity: 1;
 }
 
-.type-list {
+.video-item .icon {
+  color: #fff;
+}
+
+.video-item .type-list {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0.75em;
+  right: 0.75em;
   list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  .transform(~'translateY(-20%)');
+  .transition(~'all 0.3s');
+}
+
+.video-item:hover .type-list {
+  opacity: 1;
+  visibility: visible;
+  .transform(~'translateY(0)');
 }
 
 .button-section {

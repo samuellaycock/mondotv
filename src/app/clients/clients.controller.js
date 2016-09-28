@@ -5,7 +5,7 @@ function ClientController($stateParams, PostService, TagService, MetadataService
 
   PostService.allPostsByCategory('client', 50, 'asc', 0).then(function(posts) {
     posts.map(function(post) {
-      TagService.decorateObjectWithTag(object);
+      TagService.decorateObjectWithTag(post);
     });
     vm.clients = posts;
 

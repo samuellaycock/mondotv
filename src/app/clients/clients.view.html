@@ -1,7 +1,7 @@
 <div class="pure-g page-content">
   <section class="client-list">
     <div class="pure-u-1  pure-u-lg-1-2 pure-u-xl-1-3 client-item" ng-repeat="client in vm.clients">
-      <a ui-sref="client({ name: project.slug })" ng-class="client.tags" class="client-link">
+      <a ui-sref="client({ name: client.slug })" ng-class="client.tags" class="client-link">
         <span class="brand-logo"></span>
       </a>
     </div>
