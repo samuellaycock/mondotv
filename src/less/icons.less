@@ -13,7 +13,8 @@
 }
 
 [data-icon]:before,
-.icon:before {
+.icon:before,
+.pill:before {
   font-family: "icon-font" !important;
   content: attr(data-icon);
   font-style: normal !important;
@@ -49,8 +50,18 @@
   font-size: 0.875em;
 }
 
+.pill:before {
+  vertical-align: middle;
+}
+
+.pill:after {
+  padding-left: 0.25em;
+}
+
 .icon[class^="brand-"],
-.icon[class*=" brand-"] {
+.icon[class*=" brand-"],
+.pill[class^="brand-"],
+.pill[class*=" brand-"] {
   display: none;
 }
 
@@ -115,94 +126,152 @@
   content: "\62";
 }
 .icon-tint:before,
-.icon.category-animation:before {
+.icon.category-animation:before,
+.pill.category-animation:before {
   content: "\63";
 }
 .icon-child:before,
-.icon.category-ben:before {
+.icon.category-ben:before,
+.pill.category-ben:before {
   content: "\64";
 }
 .icon-beer:before,
-.icon.category-event:before {
+.icon.category-event:before,
+.pill.category-event:before {
   content: "\6f";
 }
 .icon-rocket:before,
-.icon.category-crowdfunding:before {
+.icon.category-crowdfunding:before,
+.pill.category-crowdfunding:before {
   content: "\70";
 }
 .icon-info:before,
-.icon.category-explainer:before {
+.icon.category-explainer:before,
+.pill.category-explainer:before {
   content: "\65";
 }
 .icon-black-tie:before,
-.icon.category-fashion:before {
+.icon.category-fashion:before,
+.pill.category-fashion:before {
   content: "\7a";
 }
 .icon-qq:before,
-.icon.category-funny:before {
+.icon.category-funny:before,
+.pill.category-funny:before {
   content: "\41";
 }
 .icon-heart:before,
-.icon.category-health:before {
+.icon.category-health:before,
+.pill.category-health:before {
   content: "\42";
 }
 .icon-exclamation:before,
-.icon.category-inspirational:before {
+.icon.category-inspirational:before,
+.pill.category-inspirational:before {
   content: "\43";
 }
 .icon-star:before,
-.icon.category-promo:before {
+.icon.category-promo:before,
+.pill.category-promo:before {
   content: "\44";
 }
 .icon-magic:before,
-.icon.category-whoop:before {
+.icon.category-whoop:before,
+.pill.category-whoop:before {
   content: "\45";
 }
 
-.icon.category-animation:before {
+.icon.category-animation:before,
+.pill.category-animation {
   background-color: @red;
 }
 
-.icon.category-ben:before {
+.icon.category-ben:before,
+.pill.category-ben {
   background-color: @purple;
 }
 
-.icon.category-crowdfunding:before {
+.icon.category-crowdfunding:before,
+.pill.category-crowdfunding {
   background-color: @grey-blue;
 }
 
-.icon.category-animation:before {
-  background-color: @red;
-}
-
-.icon.category-event:before {
+.icon.category-event:before,
+.pill.category-event {
   background-color: @orange;
 }
 
-.icon.category-explainer:before {
+.icon.category-explainer:before,
+.pill.category-explainer {
   background-color: @blue;
 }
 
-.icon.category-fashion:before {
+.icon.category-fashion:before,
+.pill.category-fashion {
   background-color: @yellow;
 }
 
-.icon.category-funny:before {
+.icon.category-funny:before,
+.pill.category-funny {
   background-color: @green;
 }
 
-.icon.category-health:before {
+.icon.category-health:before,
+.pill.category-health {
   background-color: @dark-orange;
 }
 
-.icon.category-inspirational:before {
+.icon.category-inspirational:before,
+.pill.category-inspirational {
   background-color: @cyan;
 }
 
-.icon.category-promo:before {
+.icon.category-promo:before,
+.pill.category-promo {
   background-color: @dark-blue;
 }
 
-.icon.category-whoop:before {
+.icon.category-whoop:before,
+.pill.category-whoop {
   background-color: @pink;
+}
+
+.pill.category-animation:after {
+  content: 'Animation';
+}
+
+.pill.category-ben:after {
+  content: 'Ben';
+}
+
+.pill.category-event:after {
+  content: 'Event';
+}
+
+.pill.category-explainer:after {
+  content: 'Explainer';
+}
+
+.pill.category-fashion:after {
+  content: 'Fashion';
+}
+
+.pill.category-funny:after {
+  content: 'Funny';
+}
+
+.pill.category-health:after {
+  content: 'Health';
+}
+
+.pill.category-inspirational:after {
+  content: 'Inspirational';
+}
+
+.pill.category-promo:after {
+  content: 'Promo';
+}
+
+.pill.category-whoop:after {
+  content: 'Whoop!';
 }

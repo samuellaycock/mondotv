@@ -1,0 +1,24 @@
+<div class="pure-g page-content">
+  <div class="pure-u-1" ng-class="vm.posts[0].tags">
+    <div class="brand-logo"></div>
+    <div class="pure-u-1">
+      <ul id="isotopeContainer" class="video-list" isotope-container ng-cloak>
+        <li class="video-item" ng-repeat="video in vm.posts" ng-class="video.tags" isotope-item ng-cloak>
+          <a href="{{ ::video.videoUrl }}" data-lity>
+            <figure>
+              <img class="pure-img" ng-src="{{ ::video.featured_media.sizes.medium.source_url }}" alt="{{ ::video.title.rendered }}" />
+              <figcaption class="video-caption">
+                <h3>{{ ::video.title.rendered }}</h3>
+              </figcaption>
+              <ul class="type-list">
+                <li class="type-item" ng-repeat="tag in video.tags"><div class="icon {{ ::tag }}"></div></li>
+              </ul>
+            </figure>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="post-body" ng-bind-html="vm.post.content"></div>
+  </div>
+</div>

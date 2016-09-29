@@ -1,5 +1,3 @@
-@import "vars";
-
 .pagination {
   list-style-type: none;
   margin-bottom: 30px;
@@ -186,5 +184,56 @@ ul.tags {
   iframe {
     display: inline-block;
     width: 100%;
+  }
+}
+
+body.project .post-body p:firstchild {
+  display: block;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+body.project {
+  h1 {
+    text-align: center;
+  }
+
+  .brand-logo {
+    height: 4em;
+  }
+
+  .tags {
+    display: block;
+    margin: 2em auto 3em;
+    text-align: center;
+    li {
+      display: inline-block;
+      font-size: 1em;
+      text-decoration: none;
+    }
+  }
+
+  .pill {
+    margin: 0;
+  }
+
+  .pill:not([class^="brand-"]),
+  .pill:not([class*=" brand-"]) {
+    margin: 0 0.186em;
+    padding: 0.25em 0.5em;
+    color: #fff;
+    font-size: 0.875em;
+    .border-radius(50px);
   }
 }

@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky', 'iso.directives']);
+angular.module('app', ['ui.router', 'ngAnimate', 'angularUtils.directives.dirPagination', 'slick', 'sticky', 'iso.directives', 'ngProgress']);
 
 /**
  *
@@ -209,12 +209,15 @@ var config = {
   API_URL: '%%API_URL%%'
 };
 
-function AppController($rootScope, $window, $location, $timeout, $state, $stateParams, MetadataService, PostService) {
+function AppController($rootScope, $window, $location, $timeout, $state, $stateParams, ngProgressFactory, MetadataService, PostService) {
   var vm = this;
 
+  vm.progress = ngProgressFactory.createInstance();
   vm.bulletins = [];
   vm.recentBlogs = [];
   vm.about = {};
+
+  vm.progress.color('#59b7d3');
 
   PostService.allPostsByCategoryAndTag('bulletin', 'active', 5, 'asc', 0).then(function(posts) {
     vm.bulletins = posts;
@@ -228,7 +231,14 @@ function AppController($rootScope, $window, $location, $timeout, $state, $stateP
     vm.about = post;
   });
 
+  $rootScope.$on('$routeChangeStart', function() {
+    vm.progress.reset();
+    vm.progress.start();
+  });
+
   $rootScope.$on('$stateChangeSuccess', function(e, toState) {
+    vm.progress.complete();
+    
     if(toState.name == 'other') {
       vm.activeSection = $stateParams.section;
     } else {
@@ -236,11 +246,15 @@ function AppController($rootScope, $window, $location, $timeout, $state, $stateP
     }
   });
 
+  $rootScope.$on('$routeChangeError', function() {
+    vm.progress.reset();
+  });
+
   $rootScope.$watchCollection( function() {
-      return MetadataService.getMetadata();
+    return MetadataService.getMetadata();
   }, function (meta) {
     if (typeof meta.title !== 'undefined') {
-        $rootScope.meta = meta;
+      $rootScope.meta = meta;
       $timeout(function () {
         // push event to google analytics. This is done in a $timeout
         // so the current $digest loop has a chance to actually update the
