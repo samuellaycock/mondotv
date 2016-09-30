@@ -217,7 +217,7 @@ function AppController($rootScope, $window, $location, $timeout, $state, $stateP
   vm.recentBlogs = [];
   vm.about = {};
 
-  vm.progress.color('#59b7d3');
+  vm.progress.setColor('#59b7d3');
 
   PostService.allPostsByCategoryAndTag('bulletin', 'active', 5, 'asc', 0).then(function(posts) {
     vm.bulletins = posts;
@@ -238,7 +238,7 @@ function AppController($rootScope, $window, $location, $timeout, $state, $stateP
 
   $rootScope.$on('$stateChangeSuccess', function(e, toState) {
     vm.progress.complete();
-    
+
     if(toState.name == 'other') {
       vm.activeSection = $stateParams.section;
     } else {

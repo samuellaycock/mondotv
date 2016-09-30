@@ -143,7 +143,7 @@ gulp.task('templates', function() {
 
     clean(['./build/scripts/templates.js']).then(function() {
         log('compiling templates');
-        return gulp.src('./src/app/**/*.tpl.html')
+        return gulp.src('./src/app/**/*.view.html')
             .pipe(templateCache('templates.js', { module: 'app'}))
             .pipe(gulp.dest('build/scripts/'))
             .pipe(uglify())

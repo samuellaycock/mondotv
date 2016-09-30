@@ -2,8 +2,8 @@
 <section class="pure-g page-content" ng-controller="HomeController as vm">
   <!-- Filter List -->
   <div class="pure-u-1 filter-list ng-cloak" opt-kind="" ok-key="filter">
-    <button class="pure-button hover-brand active" ok-sel="*">All</button>
-    <button ng-repeat="tag in vm.categories" class="pure-button filter-button {{ ::tag.slug }}" ok-sel=".{{ ::tag.slug }}">{{ ::tag.name }}</button>
+    <button class="pure-button hover-brand active" ok-sel="*" ng-click="vm.restoreVideoCount()">All</button>
+    <button ng-repeat="tag in vm.categories" class="pure-button filter-button {{ ::tag.slug }}" ok-sel=".{{ ::tag.slug }}" ng-click="vm.allVideoCount()">{{ ::tag.name }}</button>
   </div>
   <div class="pure-u-1">
     <ul id="isotopeContainer" class="video-list" isotope-container ng-cloak>
@@ -31,12 +31,10 @@
 
 <!-- Slider -->
 <section class="slider-contain page-content">
-  <slick class="featured-articles" init-onload=true infinite=true autoplay=true dots=true arrows=true data="vm.allFeatured" ng-if="vm.allFeatured.length">
-    <div ng-repeat="post in vm.allFeatured" style="background:#333 url({{ post.featured_media.sizes.full.source_url }}) no-repeat center center">
+  <slick class="featured-articles" init-onload=true infinite=true autoplay=true dots=true arrows=true data="vm.allTestimonials" ng-if="vm.allTestimonials.length">
+    <div ng-repeat="post in vm.allTestimonials" style="background:#333;">
       <div class="slide-content">
         <h1>{{ ::post.title.rendered }}</h1>
-        <a class="pure-button" ui-sref="post({ id: post.ID, title: post.slug })">Read More</a>
-        <a class="pure-button">Get In Touch</a>
       </div>
     </div>
   </slick>

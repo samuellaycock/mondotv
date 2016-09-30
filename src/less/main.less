@@ -227,8 +227,7 @@ nav.sticky .pure-menu-item.menu-logo {
 .pure-menu-item > a.pure-menu-link:hover,
 .pure-menu-item > a.pure-menu-link:focus {
   background: transparent!important;
-  color:  @colour-a-link;
-  border-color: @colour-a-link;
+  color: @colour-a-link;
 }
 
 .bulletin {
@@ -255,6 +254,7 @@ body.post .main-view {
 }
 
 body.clients .main-view,
+body.client .main-view,
 body.projects .main-view {
   margin: auto;
   max-width: 1000px;
@@ -478,6 +478,11 @@ button {
   border-color: @colour-a-link!important;
 }
 
+ul.tags li {
+  margin: 0;
+  padding: 0;
+}
+
 .wpcf7-form {
   margin:3em auto 1em;
   padding: 2em 1em;
@@ -585,6 +590,34 @@ label[for="pure-file"] {
 .linkedin:hover > * {
   color: #0077b5!important;
   border-color: #0077b5!important;
+}
+
+/* Styling for the ngProgress itself */
+#ngProgress {
+    margin: 0;
+    padding: 0;
+    z-index: 99998;
+    background-color: @colour-a-link;
+    color: @colour-a-link;
+    height: 2px;
+    opacity: 0;
+
+    /* Add CSS3 styles for transition smoothing */
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Styling for the ngProgress-container */
+#ngProgress-container {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
 }
 
 .ng-enter,

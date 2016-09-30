@@ -1,27 +1,44 @@
 function HomeController(PostService, TagService, DecoratorService, MetadataService) {
   var vm = this;
 
-  vm.allFeatured = [];
+  vm.allTestimonials = [];
   vm.allVideos = [];
   vm.categories = [];
   vm.brands = [];
   vm.videoCount = 12;
+  vm.videoCountRestore = 12;
   vm.moreVideos = true;
   vm.loading = true;
 
   vm.fetchMoreVideos = function() {
     vm.videoCount += 12;
+    vm.videoCountRestore += 12;
 
     if (vm.videoCount > 40) {
       vm.moreVideos = false;
     }
   };
 
-  PostService.allFeaturedPosts(5, 'asc', 1).then(function(posts) {
+  vm.allVideoCount = function() {
+    vm.videoCount = 50;
+    vm.moreVideos = false;
+  };
+
+  vm.restoreVideoCount = function() {
+    vm.videoCount = vm.videoCountRestore;
+
+    if (vm.videoCount > 40) {
+      vm.moreVideos = false;
+    } else {
+      vm.moreVideos = true;
+    }
+  };
+
+  PostService.allPostsByCategory('testimonial', 99, 'asc', 1).then(function(posts) {
     posts.map(function(post) {
-      DecoratorService.decorateObject(post);
+      TagService.decorateObjectWithTag(post);
     });
-    vm.allFeatured = posts;
+    vm.allTestimonials = posts;
   });
 
   PostService.allPostsByCategory('video', 99, 'asc', 0).then(function(posts) {
