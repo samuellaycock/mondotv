@@ -1,0 +1,79 @@
+body.process h1:not(.logo-title),
+body.process h2:not(.about-title) {
+  padding-top: 1em;
+  text-align: center;
+}
+
+body.process h1:not(.logo-title):after,
+body.process h2.step-wrap:after {
+  content: '';
+  display: inline-block;
+  padding-top: 2em;
+  height: 100%;
+  width: 3em;
+  background: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/09/30072207/prev-3.jpg') no-repeat;
+  background-size: 130%;
+}
+
+body.process h1:not(.logo-title):after {
+  background-position: -20px -10px;
+}
+
+body.process h2.step-wrap:after {
+  background-position: -20px -70px;
+}
+
+body.process h3 {
+  margin: 0;
+}
+
+.step-wrap {
+  margin: 0.25em 0;
+}
+
+.step-list {
+  list-style: circle;;
+  margin: 0;
+}
+
+.step-item {
+  padding: 0.25em;
+}
+
+.step-item:nth-child(4) {
+  list-style: none;
+}
+
+.step-animal {
+  padding-top: 6em;
+  text-align: center;
+  width: 100%;
+  @media (min-width: 35.5em) {
+    width: ~'calc((100% / 3) - 3px)';
+  }
+}
+
+.step-animal.step-minnow,
+.step-animal.step-dolphin,
+.step-animal.step-whale {
+  background-position: center -3.5em;
+}
+
+.step-animal.step-minnow {
+  background-image: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/09/30072206/minnow-300x200.jpg');
+}
+
+.step-animal.step-dolphin {
+  background-image: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/09/30072204/dolphin-300x200.jpg');
+}
+
+.step-animal.step-whale {
+  background-image: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/09/30072209/whale-300x150.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 -1em;
+}
+
+body.contact h1 {
+  text-align: center;
+}

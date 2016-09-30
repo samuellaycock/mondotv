@@ -2,6 +2,7 @@
 @import "mixins";
 @import "brands";
 @import "home";
+@import "process";
 @import "blog";
 @import "projects";
 @import "clients";
@@ -31,6 +32,7 @@ body {
 nav {
   position: relative;
   height: auto!important;
+  width: 100% !important;
   @media (max-width: 35.5em) {
     border-bottom: 1px solid @colour-border-light-bg;
     overflow-x: scroll;
@@ -85,7 +87,7 @@ nav {
   background-size: cover;
   vertical-align: bottom;
   @media (max-width: 35.5em) {
-    background-position: center -5px;
+    background-position: center -80px;
   }
 }
 
@@ -98,7 +100,12 @@ nav {
 
 .strapline h4 {
   display: inline-block;
-  max-width: 280px;
+}
+
+.strap-break {
+  @media (max-width: 20em) {
+    display: none;
+  }
 }
 
 .header-social {
@@ -118,26 +125,6 @@ nav {
 
 .header-social span {
   vertical-align: middle;
-}
-
-.icon-vimeo-circled:hover {
-  color: #1ab7ea;
-}
-
-.icon-play-circle:hover {
-  color: #cd201f;
-}
-
-.icon-twitter-circled:hover {
-  color: #1da1f2;
-}
-
-.icon-facebook-circled:hover {
-  color: #3b5998;
-}
-
-.icon-linkedin-circled:hover {
-  color: #0077b5;
 }
 
 .menu-view {
@@ -504,6 +491,10 @@ ul.tags li {
 
 .wpcf7-form .pure-controls {
     margin-left: 10em;
+}
+
+.wpcf7-form textarea {
+  max-width: 100%;
 }
 
 .no-bullet {

@@ -41,7 +41,7 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
     vm.allTestimonials = posts;
   });
 
-  PostService.allPostsByCategory('video', 99, 'asc', 0).then(function(posts) {
+  PostService.allPostsByCategory('video', 99, 'desc', 0).then(function(posts) {
     posts.map(function(post) {
       DecoratorService.decorateObject(post);
     });

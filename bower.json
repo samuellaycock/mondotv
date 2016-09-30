@@ -33,6 +33,6 @@
     "angular-isotope": "^0.1.14"
   },
   "resolutions": {
-    "angular": "^1.0.8"
+    "angular": "^1.5.8"
   }
 }

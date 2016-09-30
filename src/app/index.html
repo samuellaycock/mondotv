@@ -74,10 +74,10 @@
       <section class="menu-contain">
         <div class="pure-menu pure-menu-horizontal">
           <ul class="pure-menu-list">
-            <li class="pure-menu-item menu-logo"><a href="/"></a></li>
+            <a ui-sref="home"><li class="pure-menu-item menu-logo"></li></a>
             <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'process'}" href="process">How It Works</a></li>
-            <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'projects'}" href="projects" >Projects</a></li>
-            <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'clients'}" href="clients" >Clients</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'projects' || vm.activeSection === 'project' }" href="projects" >Projects</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'clients' || vm.activeSection === 'client' }" href="clients" >Clients</a></li>
             <!--
             <li class="pure-menu-item"><a class="pure-menu-link" ng-class="{ selected: vm.activeSection === 'blog' || vm.activeSection === 'post' || vm.activeSection === 'postsByTag' || vm.activeSection === 'postsBySearch'}" ui-sref="blog">Blog</a></li>
             -->
@@ -91,11 +91,11 @@
       <div class="pure-u-1 header-img">
         <a class="header-link" ui-sref="home">
           <div class="logo-tv"></div>
-          <h1>mondotv</h1>
+          <h1 class="logo-title">mondotv</h1>
         </a>
       </div>
       <div class="pure-u-1 strapline">
-        <h4>We make web based videos. Tech focused. Doctor approved.</h4>
+        <h4>We make web based videos.<br class="strap-break"/>Tech focused. Doctor approved.</h4>
       </div>
     </section>
 
@@ -118,9 +118,9 @@
     </main>
 
     <footer class="footer" ng-cloak>
-      <section class="footer-about">
+      <section class="footer-about" ng-if="vm.activeSection === 'home' ||  vm.activeSection === 'contact'">
         <div class="about">
-          <h2>{{ ::vm.about[0].title.rendered }}</h2>
+          <h2 class="about-title">{{ ::vm.about[0].title.rendered }}</h2>
           <div class="pure-g" ng-bind-html="vm.about[0].content"></div>
         </div>
       </section>

@@ -6,9 +6,9 @@
       "apiUrl": "http://mondotv.tk/wordpress/wp-json/wp/v2/"
     },
     "dist": {
-      "siteUrl": "http://mondotv.tk/mondotv/dist",
-      "basePath": "/mondotv/dist/",
-      "apiUrl": "../../wordpress/wp-json/wp/v2/"
+      "siteUrl": "http://mondotv.co",
+      "basePath": "/",
+      "apiUrl": "/wordpress/wp-json/wp/v2/"
     }
   },
   "DEFAULT_TITLE" : "MondoTV",

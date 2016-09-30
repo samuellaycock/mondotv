@@ -12,8 +12,8 @@ function MetadataService() {
 
     this.getMetadata = function() {
         return {
-            title: title,
-            description: description
+            title: defaultTitle,
+            description: defaultDescription
         };
     };
 }
