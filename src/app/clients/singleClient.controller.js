@@ -4,7 +4,7 @@ function SingleClientController($stateParams, PostService, DecoratorService, Met
   vm.projects = [];
   vm.client = $stateParams.name;
 
-  PostService.allPostsByCategoryAndTag('video', 'brand-' + $stateParams.name, 99, 'asc', 0).then(function(posts) {
+  PostService.allPostsByCategoryAndTag('video', 'brand-' + $stateParams.name, 99, 'date', 1).then(function(posts) {
     posts.map(function(post) {
       DecoratorService.decorateObject(post);
     });

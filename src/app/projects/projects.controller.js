@@ -3,7 +3,7 @@ function ProjectController($stateParams, PostService, TagService, DecoratorServi
 
   vm.projects = [];
 
-  PostService.allPostsByCategory('video', 50, 'asc', 0).then(function(posts) {
+  PostService.allPostsByCategory('video', 99, 'date', 1).then(function(posts) {
     posts.map(function(post) {
       DecoratorService.decorateObject(post);
     });

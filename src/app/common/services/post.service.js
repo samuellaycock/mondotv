@@ -11,31 +11,31 @@ function PostService(DataService) {
 
   // Search and return all posts by category
   function allPostsByCategory(category, amount, order, offset) {
-    return DataService.getData('posts?filter[category_name]=' + category + '&filter[posts_per_page]=' + amount + '&filter[offset]=' + offset + '&filter[order]=' + order);
+    return DataService.getData('posts?filter[category_name]=' + category + '&page=' + offset + '&per_page=' + amount + '&orderby=' + order);
   }
 
   // Search and return from all posts by tag
   function allPostsByTag(tag, amount, order, offset) {
-    return DataService.getData('posts?filter[tag]=' + tag + '&filter[posts_per_page]=' + amount + '&filter[offset]=' + offset + '&filter[order]=' + order);
+    return DataService.getData('posts?filter[tag]=' + tag + '&page=' + offset + '&per_page=' + amount + '&orderby=' + order);
   }
 
   // Search and return from all posts by category and tag
   function allPostsByCategoryAndTag(category, tag, amount, order, offset) {
-    return DataService.getData('posts?filter[category_name]=' + category + '&filter[tag]=' + tag + '&filter[posts_per_page]=' + amount + '&filter[offset]=' + offset + '&filter[order]=' + order);
+    return DataService.getData('posts?filter[category_name]=' + category + '&filter[tag]=' + tag + '&page=' + offset + '&per_page=' + amount + '&orderby=' + order);
   }
 
   // Search and return all posts by search term
   function allPostsBySearchTerm(searchTerm, amount, order, offset) {
-    return DataService.getData('posts?search=' + searchTerm + '&filter[posts_per_page]=' + amount + '&filter[offset]=' + offset + '&filter[order]=' + order);
+    return DataService.getData('posts?search=' + searchTerm + '&page=' + offset + '&per_page=' + amount + '&orderby=' + order);
   }
 
   function allFeaturedPosts(amount, order, offset) {
-    return DataService.getData('posts?filter[category_name]=featured&filter[posts_per_page]=' + amount + '&filter[order]=' + order);
+    return DataService.getData('posts?filter[category_name]=featured&page=' + offset + '&per_page=' + amount + '&orderby=' + order);
   }
 
   // Search and return all featured posts by category
   function featuredPostsByCategory(category, amount, order, offset) {
-    return DataService.getData('posts?filter[category_name]=' + category + '%2Bfeatured&filter[posts_per_page]=' + amount + '&filter[offset]=' + offset + '&filter[order]=' + order);
+    return DataService.getData('posts?filter[category_name]=' + category + '%2Bfeatured&page=' + offset + '&per_page=' + amount + '&orderby=' + order);
   }
 
   // Search and return single post by ID

@@ -34,14 +34,14 @@ function HomeController(PostService, TagService, DecoratorService, MetadataServi
     }
   };
 
-  PostService.allPostsByCategory('testimonial', 99, 'asc', 1).then(function(posts) {
+  PostService.allPostsByCategory('testimonial', 99, 'date', 1).then(function(posts) {
     posts.map(function(post) {
       TagService.decorateObjectWithTag(post);
     });
     vm.allTestimonials = posts;
   });
 
-  PostService.allPostsByCategory('video', 99, 'desc', 0).then(function(posts) {
+  PostService.allPostsByCategory('video', 99, 'date', 1).then(function(posts) {
     posts.map(function(post) {
       DecoratorService.decorateObject(post);
     });
