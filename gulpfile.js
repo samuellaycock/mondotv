@@ -29,7 +29,6 @@ var VENDOR_SCRIPTS = [
   'bower_components/lity/dist/lity.min.js',
   'bower_components/slick-carousel/slick/slick.js',
   'bower_components/isotope/dist/isotope.pkgd.min.js',
-  'src/scripts/contact-form-7.js',
   'bower_components/angular/angular.js',
   'bower_components/angular-animate/angular-animate.js',
   'bower_components/angular-ui-router/release/angular-ui-router.js',

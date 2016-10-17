@@ -2,14 +2,10 @@
   "uploadOnSave": true,
   "useAtomicWrites": false,
   "deleteLocal": false,
-  "hostname": "52.89.68.46",
-  "target": "/var/www/html/mondotv",
   "ignore": [
     ".remote-sync.json",
     ".git/**"
   ],
-  "username": "ubuntu",
-  "keyfile": "C://Users/samla/Downloads/mondotv-web-server-key.pem",
   "watch": [],
   "transport": "scp"
 }
