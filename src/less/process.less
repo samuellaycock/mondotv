@@ -6,7 +6,7 @@ body.process h2:not(.about-title) {
 body.process h1:not(.logo-title):after {
   content: '';
   display: inline-block;
-  padding-top: 2em;
+  padding-top: 1.25em;
   height: 100%;
   width: 3em;
   background: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/10/19222718/prev.jpg') no-repeat;
@@ -14,7 +14,7 @@ body.process h1:not(.logo-title):after {
 }
 
 body.process h1:not(.logo-title):after {
-  background-position: -20px -10px;
+  background-position: -20px -47px;
 }
 
 body.process h3 {
@@ -26,20 +26,17 @@ body.process h3 {
 }
 
 .step-list {
-  list-style: circle;;
+  list-style: circle;
   margin: 0;
 }
 
 .step-item {
+  display: list-item;
   padding: 0.25em;
 }
 
-.step-item:nth-child(4) {
-  list-style: none;
-}
-
 .step-animal {
-  padding-top: 6em;
+  padding-top: 4em;
   text-align: center;
   width: 100%;
   @media (min-width: 35.5em) {
@@ -54,20 +51,18 @@ body.process h3 {
 }
 
 .step-animal.step-minnow {
-  background: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/10/19222713/MINNOW-300x200.jpg') no-repeat center center;
-  background-size: 40%;
+  background: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/10/19222713/MINNOW-300x200.jpg') no-repeat center 30px;
+  background-size: 30%;
 }
 
 .step-animal.step-dolphin {
-  background: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/10/19222711/dolphin-300x200.jpg') no-repeat center center;
-  background-size: 60%;
+  background: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/10/19222711/dolphin-300x200.jpg') no-repeat center 20px;
+  background-size: 40%;
 }
 
 .step-animal.step-whale {
-  background-image: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/10/19222714/WHALE-300x150.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: 0 -1em;
+  background: url('https://d1u68gg9qsavh7.cloudfront.net/wordpress/wp-content/uploads/2016/10/19222714/WHALE-300x150.jpg') no-repeat center 5px;
+  background-size: 70%;
 }
 
 body.contact h1 {

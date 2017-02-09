@@ -90,7 +90,7 @@
     <section class="header pure-g">
       <div class="pure-u-1 header-img">
         <a class="header-link" ui-sref="home">
-          <div class="logo-tv"></div>
+          <div class="logo-tv" id="logo-tv"></div>
           <h1 class="logo-title">mondotv</h1>
         </a>
       </div>
@@ -149,6 +149,18 @@
 
     <!-- inject:js -->
     <!-- endinject -->
+    <script>
+      (function () {
+        $('#logo-tv').hover(function() {
+          $('#logo-tv').addClass('logo-animating');
+          this.style.webkitAnimationPlayState = "running";
+
+          $(this).on('webkitAnimationEnd', function() {
+            $('#logo-tv').removeClass('logo-animating');
+          });
+        });
+      })($);
+    </script>
 
     <script>
       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){

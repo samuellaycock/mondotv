@@ -1,9 +1,9 @@
 {
   "PATHS": {
     "build": {
-      "siteUrl": "http://mondotv.tk/mondotv/build",
-      "basePath": "/mondotv/build/",
-      "apiUrl": "http://mondotv.tk/wordpress/wp-json/wp/v2/"
+      "siteUrl": "http://mondotv.co/mondotv/build",
+      "basePath": "D:/samuel-laycock/Development/mondotv/mondotv-web/build",
+      "apiUrl": "http://mondotv.co/wordpress/wp-json/wp/v2/"
     },
     "dist": {
       "siteUrl": "http://mondotv.co",

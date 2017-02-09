@@ -73,7 +73,8 @@ nav {
 }
 
 .header-img h1 {
-  margin: 0;
+  margin: 0 0 0 -18px;
+  padding-bottom: 0.25em;
   color: @colour-text-content!important;
   text-transform: lowercase;
   font-size: 4em;
@@ -81,14 +82,28 @@ nav {
 }
 
 .logo-tv {
-  height: 150px;
+  height: 185px;
   width: 150px;
-  background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/logo-still.jpg') no-repeat 15px -80px;
-  background-size: cover;
+  background: url('https://s3-us-west-2.amazonaws.com/assets.mondotv.co/logos/sprite.png') no-repeat left center;
+  background-size: auto;
   vertical-align: bottom;
-  @media (max-width: 35.5em) {
-    background-position: center -80px;
+  @media (min-width: 768px) {
+    margin-left:-25px;
   }
+}
+
+.logo-animating {
+  -webkit-animation: logo 3.28s steps(83);
+  animation: logo 3.28s steps(83);
+  animation-play-state: paused;
+}
+
+@-webkit-keyframes logo {
+   100% { background-position: -12450px; }
+}
+
+@keyframes logo {
+   100% { background-position: -12450px; }
 }
 
 .header .strapline {
@@ -240,7 +255,6 @@ body.post .main-view {
   max-width: 800px;
 }
 
-body.clients .main-view,
 body.client .main-view,
 body.projects .main-view {
   margin: auto;
